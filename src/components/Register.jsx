@@ -31,7 +31,7 @@ const Register = () => {
     <div className="flex justify-center items-center w-full h-full px-6 text-white animate-fade-in">
       <div
         className="
-        relative max-w-xl w-full p-10 rounded-3xl
+        relative max-w-xl w-full p-12 rounded-3xl
         bg-black/50 backdrop-blur-2xl
         border border-pink-600/30
         shadow-[0_0_40px_rgba(255,0,130,0.35)]
@@ -41,89 +41,87 @@ const Register = () => {
       "
       >
         {/* HEADER */}
-        <h2 className="text-4xl font-extrabold text-center tracking-wide mb-10">
-          <span className="bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">
-            Create Your Account
-          </span>
+        <h2 className="text-4xl font-extrabold text-center tracking-wide mb-10 bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">
+          Create Your Account ✨
         </h2>
 
         {/* FORM GRID */}
-        <div className="grid grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-2 gap-5 mb-6">
           <div>
-            <label className="text-xs uppercase text-gray-400 tracking-widest">
+            <label className="text-sm uppercase text-gray-300 tracking-widest font-semibold">
               First Name
             </label>
             <input
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="mt-1 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-sm
+              className="mt-2 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-base
                 focus:border-pink-600 focus:ring-2 focus:ring-pink-600 transition-all outline-none"
             />
           </div>
 
           <div>
-            <label className="text-xs uppercase text-gray-400 tracking-widest">
+            <label className="text-sm uppercase text-gray-300 tracking-widest font-semibold">
               Last Name
             </label>
             <input
               type="text"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              className="mt-1 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-sm
+              className="mt-2 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-base
                 focus:border-pink-600 focus:ring-2 focus:ring-pink-600 transition-all outline-none"
             />
           </div>
         </div>
 
         {/* EMAIL */}
-        <div className="mb-4">
-          <label className="text-xs uppercase text-gray-400 tracking-widest">
-            Email
+        <div className="mb-5">
+          <label className="text-sm uppercase text-gray-300 tracking-widest font-semibold">
+            Email Address
           </label>
           <input
             type="email"
             value={emailAddress}
             onChange={(e) => setEmailAddress(e.target.value)}
-            className="mt-1 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-sm
+            className="mt-2 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-base
               focus:border-pink-600 focus:ring-2 focus:ring-pink-600 outline-none"
           />
         </div>
 
         {/* PASSWORD */}
-        <div className="mb-4">
-          <label className="text-xs uppercase text-gray-400 tracking-widest">
+        <div className="mb-5">
+          <label className="text-sm uppercase text-gray-300 tracking-widest font-semibold">
             Password
           </label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-sm
+            className="mt-2 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-base
               focus:border-red-600 focus:ring-2 focus:ring-red-600 outline-none"
           />
         </div>
 
         {/* AGE */}
-        <div className="mb-4">
-          <label className="text-xs uppercase text-gray-400 tracking-widest">
+        <div className="mb-5">
+          <label className="text-sm uppercase text-gray-300 tracking-widest font-semibold">
             Age
           </label>
           <input
             type="number"
             value={age}
             onChange={(e) => setAge(e.target.value)}
-            className="mt-1 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-sm
+            className="mt-2 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-base
               focus:border-pink-600 focus:ring-2 focus:ring-pink-600 outline-none"
           />
         </div>
 
         {/* GENDER */}
         <div className="mb-8">
-          <label className="text-xs uppercase text-gray-400 tracking-widest block mb-2">
+          <label className="text-sm uppercase text-gray-300 tracking-widest font-semibold block mb-3">
             Gender
           </label>
-          <div className="flex gap-6">
+          <div className="flex gap-8 text-lg">
             {["male", "female", "other"].map((g) => (
               <label
                 key={g}
@@ -135,7 +133,7 @@ const Register = () => {
                   value={g}
                   checked={gender === g}
                   onChange={(e) => setGender(e.target.value)}
-                  className="accent-pink-600 w-4 h-4"
+                  className="accent-pink-600 w-5 h-5"
                 />
                 <span className="capitalize">{g}</span>
               </label>
@@ -155,7 +153,7 @@ const Register = () => {
           Create Account
         </button>
 
-        <p className="mt-6 text-center text-sm text-gray-400">
+        <p className="mt-6 text-center text-base text-gray-300">
           Already have an account?{" "}
           <span
             onClick={() => navigate("/login")}
