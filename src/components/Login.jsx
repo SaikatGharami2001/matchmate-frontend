@@ -17,7 +17,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-black via-gray-900 to-gray-950 text-white px-4">
+    <div className="flex justify-center items-center w-full h-full px-4 text-white">
       <div
         className="backdrop-blur-2xl bg-white/5 rounded-3xl px-10 py-12 max-w-md w-full border border-white/10 shadow-2xl 
       hover:shadow-pink-600/40 transition-all duration-300"

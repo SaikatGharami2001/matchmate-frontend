@@ -24,10 +24,11 @@ const Home = () => {
           Get Started
         </button>
 
-        <Link to="/about">
-          <button className="px-8 py-4 rounded-2xl font-semibold text-lg bg-white/10 border border-white/20 backdrop-blur-lg hover:border-pink-500/40 hover:text-pink-400 transition-all">
-            Learn More
-          </button>
+        <Link
+          to="/about"
+          className="px-8 py-4 rounded-2xl font-semibold text-lg bg-white/10 border border-white/20 backdrop-blur-lg hover:border-pink-500/40 hover:text-pink-400 transition-all"
+        >
+          Learn More
         </Link>
       </div>
     </div>
