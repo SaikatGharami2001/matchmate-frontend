@@ -1,19 +1,33 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const [emailAddress, setEmailAddress] = useState("saikat@gmail.com");
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("saikat@gmail.com");
   const [password, setPassword] = useState("Raiden@199725");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleLogin = async () => {
     try {
-      await axios.post("http://localhost:1111/login", {
-        emailAddress,
-        password,
-      });
+      setErrorMessage("");
+      setSuccessMessage("");
+
+      const res = await axios.post(
+        "http://localhost:1111/login",
+        { email, password },
+        { withCredentials: true }
+      );
+
+      setSuccessMessage("Login Successful 🎉 Redirecting...");
+      // setTimeout(() => navigate("/profile"), 800);
     } catch (err) {
-      console.log(err);
+      setSuccessMessage("");
+      setErrorMessage(
+        err.response?.data?.Message || "Invalid email or password"
+      );
     }
   };
 
@@ -32,7 +46,7 @@ const Login = () => {
         </h2>
 
         <p className="text-center text-sm text-gray-400 mb-8 tracking-wide">
-          Your journey continues — let’s build something powerful.
+          Your journey continues — let’s get connected.
         </p>
 
         {/* Email */}
@@ -42,8 +56,8 @@ const Login = () => {
           </label>
           <input
             type="text"
-            value={emailAddress}
-            onChange={(e) => setEmailAddress(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="px-4 py-3 rounded-xl bg-gray-900/60 border border-white/10 
             focus:ring-2 focus:ring-pink-500 focus:border-pink-500
             outline-none text-sm placeholder-gray-500 transition-all"
@@ -77,6 +91,20 @@ const Login = () => {
         >
           Login
         </button>
+
+        {/* ERROR MESSAGE HERE */}
+
+        {successMessage && (
+          <p className="text-center mt-4 text-green-400 font-semibold animate-fade-in">
+            {successMessage}
+          </p>
+        )}
+
+        {errorMessage && (
+          <p className="text-center mt-2 text-red-400 font-semibold animate-fade-in">
+            {errorMessage}
+          </p>
+        )}
 
         <p className="text-center text-sm text-gray-300 mt-6">
           Don’t have an account?{" "}
