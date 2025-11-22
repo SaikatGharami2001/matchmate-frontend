@@ -6,34 +6,40 @@ import BackgroundParticles from "../components/BackgroundParticles";
 const Body = () => {
   const location = useLocation();
 
-  const hideLayout =
-    location.pathname === "/" ||
-    location.pathname === "/login" ||
-    location.pathname === "/about";
+  // All routes that should hide navbar + footer
+  const fullScreenPages = ["/", "/login", "/register"];
+  const hideLayout = fullScreenPages.includes(location.pathname);
 
   return (
-    <div
-      className="relative min-h-screen overflow-hidden 
-      bg-[#0d0d11] 
-      bg-[radial-gradient(circle_at_center,rgba(255,0,102,0.12),transparent_65%)] 
-      text-white transition-all"
-    >
+    <div className="relative flex flex-col min-h-screen overflow-hidden bg-[#0d0d11] bg-[radial-gradient(circle_at_center,rgba(255,0,102,0.12),transparent_65%)] text-white transition-all duration-300 ease-in-out">
       <BackgroundParticles />
 
-      {!hideLayout && <Navbar />}
+      {/* Navbar condition */}
+      {!hideLayout && (
+        <div className="animate-fade-in">
+          <Navbar />
+        </div>
+      )}
 
-      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
+      {/* Top divider only if navbar visible */}
+      {!hideLayout && (
+        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
+      )}
 
-      <main
-        className="px-4 py-10 min-h-[calc(100vh-120px)]
-        animate-fade-in"
-      >
+      <main className="flex flex-grow justify-center items-center px-4 py-8 animate-fade-in">
         <Outlet />
       </main>
 
-      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
+      {/* Bottom divider only if footer visible */}
+      {!hideLayout && (
+        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
+      )}
 
-      {!hideLayout && <Footer />}
+      {!hideLayout && (
+        <div className="animate-fade-in">
+          <Footer />
+        </div>
+      )}
     </div>
   );
 };

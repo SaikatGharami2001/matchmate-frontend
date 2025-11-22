@@ -1,13 +1,58 @@
+const particles = [
+  {
+    icon: "❤️",
+    size: "text-5xl",
+    opacity: "text-pink-500/30",
+    left: "10%",
+    top: "15%",
+    anim: "animate-float",
+  },
+  {
+    icon: "💘",
+    size: "text-6xl",
+    opacity: "text-pink-500/25",
+    left: "35%",
+    top: "30%",
+    anim: "animate-float-delayed",
+  },
+  {
+    icon: "💖",
+    size: "text-7xl",
+    opacity: "text-pink-500/20",
+    left: "70%",
+    top: "65%",
+    anim: "animate-float",
+  },
+  {
+    icon: "💝",
+    size: "text-5xl",
+    opacity: "text-pink-500/25",
+    left: "80%",
+    top: "25%",
+    anim: "animate-float-slow",
+  },
+  {
+    icon: "💕",
+    size: "text-6xl",
+    opacity: "text-pink-500/15",
+    left: "15%",
+    top: "70%",
+    anim: "animate-float-slow",
+  },
+];
+
 const BackgroundParticles = () => {
   return (
     <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">
-      <div className="animate-float absolute text-pink-500/30 text-4xl">❤️</div>
-      <div className="animate-float-delayed absolute text-pink-500/25 text-5xl left-1/3 top-1/4">
-        💘
-      </div>
-      <div className="animate-float absolute text-pink-500/20 text-6xl left-2/3 top-2/3">
-        💖
-      </div>
+      {particles.map((p, i) => (
+        <div
+          key={i}
+          className={`${p.anim} absolute ${p.size} ${p.opacity} blur-[1px]`}
+          style={{ left: p.left, top: p.top }}
+        >
+          {p.icon}
+        </div>
+      ))}
     </div>
   );
 };

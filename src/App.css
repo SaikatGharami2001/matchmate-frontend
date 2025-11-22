@@ -29,3 +29,89 @@
 .animate-fade-in {
   animation: fade-in 0.6s ease-out forwards;
 }
+
+/* Glow Pulse Animation */
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(255,0,120,0.4); }
+  50% { box-shadow: 0 0 30px rgba(255,0,120,0.9); }
+  100% { box-shadow: 0 0 10px rgba(255,0,120,0.4); }
+}
+
+.animate-glow {
+  animation: glow 2.5s infinite;
+}
+
+
+/* Slow Gradient Movement Background */
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-move 6s ease infinite;
+}
+
+/* Soft Pop-in Animation */
+
+@keyframes pop {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pop {
+  animation: pop 0.35s ease-out forwards;
+}
+
+/* Heart Beat Animation */
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+/* Text Shine Animation */
+
+@keyframes shine {
+  0% { background-position: -200%; }
+  100% { background-position: 200%; }
+}
+
+
+.text-shine {
+  background: linear-gradient(90deg, #fff, #ff007f, #fff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+/* Floating Up Bubbles / Emojis */
+
+@keyframes float-slow {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+  50% { transform: translateY(-35px) rotate(10deg); opacity: 0.9; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+@keyframes fadeScale {
+  0% { opacity: 0; transform: scale(0.92) translateY(6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes underline {
+  from { width: 0; opacity: 0; }
+  to { width: 2.5rem; opacity: 1; }
+}

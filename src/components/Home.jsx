@@ -5,7 +5,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center text-center mt-24 animate-fade-in">
+    <div className="flex flex-col items-center justify-center text-center h-full animate-fade-in">
       <h1 className="text-6xl font-extrabold bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,0,102,0.6)]">
         Find Your Perfect Match ❤️
       </h1>
@@ -19,7 +19,7 @@ const Home = () => {
       <div className="mt-10 flex gap-4">
         <button
           onClick={() => navigate("/login")}
-          className="px-8 py-4 rounded-2xl font-bold text-lg bg-gradient-to-r from-pink-600 to-red-600 hover:from-pink-700 hover:to-red-700 active:scale-95 transition-all shadow-lg shadow-red-500/30"
+          className="px-8 py-4 rounded-2xl font-bold text-lg bg-gradient-to-r from-pink-600 to-red-600 hover:from-pink-700 hover:to-red-700 active:scale-95 transition-all shadow-lg shadow-red-500/30 animate-glow"
         >
           Get Started
         </button>
