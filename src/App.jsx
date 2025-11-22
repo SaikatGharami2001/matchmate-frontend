@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Body from "./components/Body";
+import Home from "./components/Body";
+import Body from "./components/Home";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import About from "./components/About";
 
 function App() {
   return (
@@ -9,8 +11,10 @@ function App() {
       <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={<Body />}>
-            <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route index element={<Home />} />
+            <Route path="login" element={<Login />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="about" element={<About />} />
           </Route>
         </Routes>
       </BrowserRouter>
