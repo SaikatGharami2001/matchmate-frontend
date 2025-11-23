@@ -9,17 +9,26 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true); // instant UI feedback
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    if (!email || !password) {
+      setLoading(false);
+      setErrorMessage("Please fill all fields");
+
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 3000);
+
+      return;
+    }
+
     try {
-      if (!email || !password) {
-        setErrorMessage("Please fill all fields");
-        return;
-      }
-
-      setErrorMessage("");
-      setSuccessMessage("");
-
       const res = await axios.post(
         "http://localhost:1111/login",
         { email, password },
@@ -27,12 +36,13 @@ const Login = () => {
       );
 
       setSuccessMessage("Login Successful 🎉 Redirecting...");
-      setTimeout(() => navigate("/Dashboard"), 1000);
+      setTimeout(() => navigate("/Dashboard"), 800);
     } catch (err) {
-      setSuccessMessage("");
       setErrorMessage(
         err.response?.data?.Message || "Invalid email or password"
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -53,59 +63,60 @@ const Login = () => {
         <p className="text-center text-sm text-gray-400 mb-8 tracking-wide">
           Your journey continues — let’s get connected.
         </p>
-
-        {/* Email */}
-        <div className="flex flex-col gap-2 mb-4">
-          <label className="text-xs font-semibold tracking-widest text-gray-300">
-            EMAIL ADDRESS
-          </label>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="px-4 py-3 rounded-xl bg-gray-900/60 border border-white/10 
+        <form onSubmit={handleLogin}>
+          {/* Email */}
+          <div className="flex flex-col gap-2 mb-4">
+            <label className="text-xs font-semibold tracking-widest text-gray-300">
+              EMAIL ADDRESS
+            </label>
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="px-4 py-3 rounded-xl bg-gray-900/60 border border-white/10 
             focus:ring-2 focus:ring-pink-500 focus:border-pink-500
             outline-none text-sm placeholder-gray-500 transition-all"
-            placeholder="Enter email"
-          />
-        </div>
+              placeholder="Enter email"
+            />
+          </div>
 
-        {/* Password */}
-        <div className="flex flex-col gap-2 mb-6">
-          <label className="text-xs font-semibold tracking-widest text-gray-300">
-            PASSWORD
-          </label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="px-4 py-3 rounded-xl bg-gray-900/60 border border-white/10 
+          {/* Password */}
+          <div className="flex flex-col gap-2 mb-6">
+            <label className="text-xs font-semibold tracking-widest text-gray-300">
+              PASSWORD
+            </label>
+            <input
+              type="password"
+              value={password}
+              onKeyDown={(e) => e.key === "Enter" && handleLogin()}
+              onChange={(e) => setPassword(e.target.value)}
+              className="px-4 py-3 rounded-xl bg-gray-900/60 border border-white/10 
             focus:ring-2 focus:ring-red-500 focus:border-red-500
             outline-none text-sm placeholder-gray-500 transition-all"
-            placeholder="Enter password"
-          />
-        </div>
+              placeholder="Enter password"
+            />
+          </div>
 
-        {/* Login Button */}
-        <button
-          onClick={handleLogin}
-          className="w-full py-3 rounded-xl font-bold text-lg 
+          {/* Login Button */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3 rounded-xl font-bold text-lg 
           bg-gradient-to-r from-pink-600 to-red-600 
           hover:from-pink-700 hover:to-red-700 active:scale-95
-          transition-all shadow-lg shadow-red-500/30 animate-glow"
-        >
-          Login
-        </button>
-
-        {/* ERROR MESSAGE HERE */}
-
+          transition-all shadow-lg shadow-red-500/30 animate-glow
+          disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+        {/* Error / Success message */}
         <div className="h-8 mt-3 flex justify-center items-center">
           {successMessage && (
             <p className="text-green-400 font-semibold text-sm animate-fade-in">
               {successMessage}
             </p>
           )}
-
           {errorMessage && (
             <p className="text-red-400 font-semibold text-sm animate-fade-in">
               {errorMessage}
