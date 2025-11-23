@@ -20,7 +20,7 @@ const Navbar = () => {
         {},
         { withCredentials: true }
       );
-      navigate("/login");
+      navigate("/");
       setLogout("Logout Successful 🎉");
     } catch (err) {
       console.log(err.message);
@@ -117,13 +117,11 @@ const Navbar = () => {
                 >
                   <ul className="space-y-2">
                     <li>
-                      <Link className="block px-3 py-2 rounded-lg hover:bg-pink-600/30 transition">
+                      <Link
+                        to="/profile"
+                        className="block px-3 py-2 rounded-lg hover:bg-pink-600/30 transition"
+                      >
                         Profile
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="block px-3 py-2 rounded-lg hover:bg-pink-600/30 transition">
-                        Settings
                       </Link>
                     </li>
 

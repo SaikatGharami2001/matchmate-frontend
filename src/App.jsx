@@ -5,6 +5,7 @@ import Body from "./components/Body";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Dashboard from "./components/Dashboard";
+import Profile from "./components/Profile";
 import About from "./components/About";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="dashboard" element={<Dashboard />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="about" element={<About />} />
           </Route>
         </Routes>
