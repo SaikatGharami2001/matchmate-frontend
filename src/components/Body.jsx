@@ -7,7 +7,7 @@ const Body = () => {
   const location = useLocation();
 
   // All routes that should hide navbar + footer
-  const fullScreenPages = ["/", "/login", "/register", "/about"];
+  const fullScreenPages = ["/", "/login", "/signup", "/about"];
   const hideLayout = fullScreenPages.includes(location.pathname);
 
   return (

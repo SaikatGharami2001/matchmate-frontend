@@ -95,13 +95,13 @@ const Login = () => {
         {/* ERROR MESSAGE HERE */}
 
         {successMessage && (
-          <p className="text-center mt-4 text-green-400 font-semibold animate-fade-in">
+          <p className="text-center mt-4 text-green-400 font-semibold tracking-wide animate-fade-in">
             {successMessage}
           </p>
         )}
 
         {errorMessage && (
-          <p className="text-center mt-2 text-red-400 font-semibold animate-fade-in">
+          <p className="text-center mt-2 text-red-400 font-semibold tracking-wide animate-fade-in">
             {errorMessage}
           </p>
         )}
@@ -109,10 +109,10 @@ const Login = () => {
         <p className="text-center text-sm text-gray-300 mt-6">
           Don’t have an account?{" "}
           <Link
-            to="/register"
+            to="/signup"
             className="text-pink-500 font-semibold hover:text-red-500 transition-all"
           >
-            Register
+            Sign Up
           </Link>
         </p>
       </div>

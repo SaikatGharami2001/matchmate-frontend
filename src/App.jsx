@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Body from "./components/Body";
 import Login from "./components/Login";
-import Register from "./components/Register";
+import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
 import About from "./components/About";
 
@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={<Body />}>
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
+            <Route path="signup" element={<SignUp />} />
             <Route path="profile" element={<Profile />} />
             <Route path="about" element={<About />} />
           </Route>
