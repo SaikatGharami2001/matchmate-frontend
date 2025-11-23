@@ -1,10 +1,32 @@
+import axios from "axios";
 import { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const [logout, setLogout] = useState("");
+
+  const handleLogout = async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:1111/logout",
+        {},
+        { withCredentials: true }
+      );
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
+
+      setLogout("Logout Successful 🎉");
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   useEffect(() => {
     const handler = (e) => {
@@ -23,7 +45,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* LOGO */}
         <Link
-          to="/"
+          to="/dashboard"
           className="text-3xl font-extrabold tracking-wide text-white hover:text-pink-500 transition duration-300"
         >
           MatchMate<span className="text-pink-600">❤️</span>
@@ -35,7 +57,9 @@ const Navbar = () => {
             <Link
               key={item}
               to={
-                item.toLowerCase() === "feed" ? "/" : `/${item.toLowerCase()}`
+                item.toLowerCase() === "feed"
+                  ? "/dashboard"
+                  : `/${item.toLowerCase()}`
               }
               className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
             >
@@ -88,7 +112,10 @@ const Navbar = () => {
                   </li>
                   <div className="h-[1px] bg-white/10"></div>
                   <li>
-                    <button className="block w-full text-left px-3 py-2 rounded-lg hover:bg-red-600/40 text-red-400 transition">
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full text-left px-3 py-2 rounded-lg hover:bg-red-600/40 text-red-400 transition"
+                    >
                       Logout
                     </button>
                   </li>

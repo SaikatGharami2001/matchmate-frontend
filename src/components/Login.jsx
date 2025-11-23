@@ -27,7 +27,7 @@ const Login = () => {
       );
 
       setSuccessMessage("Login Successful 🎉 Redirecting...");
-      // setTimeout(() => navigate("/profile"), 800);
+      setTimeout(() => navigate("/Dashboard"), 1000);
     } catch (err) {
       setSuccessMessage("");
       setErrorMessage(
@@ -37,7 +37,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex justify-center items-center px-4 text-white animate-fade-in">
+    <div className="min-h-screen w-full overflow-hidden flex justify-center items-center px-4 text-white animate-fade-in">
       <div
         className="
         backdrop-blur-2xl bg-white/5 
@@ -99,17 +99,19 @@ const Login = () => {
 
         {/* ERROR MESSAGE HERE */}
 
-        {successMessage && (
-          <p className="text-center mt-4 text-green-400 font-semibold tracking-wide animate-fade-in">
-            {successMessage}
-          </p>
-        )}
+        <div className="h-8 mt-3 flex justify-center items-center">
+          {successMessage && (
+            <p className="text-green-400 font-semibold text-sm animate-fade-in">
+              {successMessage}
+            </p>
+          )}
 
-        {errorMessage && (
-          <p className="text-center mt-2 text-red-400 font-semibold tracking-wide animate-fade-in">
-            {errorMessage}
-          </p>
-        )}
+          {errorMessage && (
+            <p className="text-red-400 font-semibold text-sm animate-fade-in">
+              {errorMessage}
+            </p>
+          )}
+        </div>
 
         <p className="text-center text-sm text-gray-300 mt-6">
           Don’t have an account?{" "}
