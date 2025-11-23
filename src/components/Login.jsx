@@ -5,13 +5,18 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("saikat@gmail.com");
-  const [password, setPassword] = useState("Raiden@199725");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleLogin = async () => {
     try {
+      if (!email || !password) {
+        setErrorMessage("Please fill all fields");
+        return;
+      }
+
       setErrorMessage("");
       setSuccessMessage("");
 
