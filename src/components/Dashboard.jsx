@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../store/useAuthStore";
 
 const Dashboard = () => {
+  const user = useAuthStore((state) => state.user);
+  console.log(user.firstName);
+
   return (
     <div className="relative z-10 min-h-screen w-full text-white flex flex-col px-6 py-10">
       {/* HEADER */}
-      <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent tracking-wide pointer-events-auto">
-        Welcome to MatchMate Dashboard ❤️
-      </h1>
+
+      {user && (
+        <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent tracking-wide pointer-events-auto">
+          Welcome back, {user.firstName}
+        </h1>
+      )}
 
       <p className="text-center text-gray-400 mt-3 mb-10 text-lg pointer-events-auto">
         Your journey to meaningful connections starts here

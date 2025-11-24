@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import DropdownPortal from "./DropdownPortal";
+import { BASE_URL } from "../utils/constants";
 
 import { useAuthStore } from "../store/useAuthStore";
 
@@ -10,18 +11,16 @@ const Navbar = () => {
   const [fadeAnim, setFadeAnim] = useState(false);
   const dropdownRef = useRef(null);
   const { pathname } = useLocation();
+
   const logoutUser = useAuthStore((state) => state.logoutUser);
+  const user = useAuthStore((state) => state.user);
 
   const [coords, setCoords] = useState({ top: 0, left: 0 });
   const [logout, setLogout] = useState("");
 
   const handleLogout = async () => {
     try {
-      await axios.post(
-        "http://localhost:1234/logout",
-        {},
-        { withCredentials: true }
-      );
+      await axios.post(`${BASE_URL}/logout`, {}, { withCredentials: true });
       logoutUser();
       setLogout("Logout Successful 🎉");
     } catch (err) {
@@ -94,11 +93,38 @@ const Navbar = () => {
               onClick={handleAvatarClick}
               className="w-11 h-11 rounded-full overflow-hidden border border-pink-600/50 hover:border-pink-500 transition cursor-pointer shadow-[0_0_12px_rgba(255,0,120,0.4)]"
             >
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                alt="user"
-                className="object-cover w-full h-full"
-              />
+              {/* Profile Logo Start */}
+
+              <div
+                className="
+    w-11 h-11 rounded-full
+    flex items-center justify-center
+    text-xl font-extrabold
+    bg-gradient-to-br from-pink-600 via-red-600 to-purple-700
+    text-white
+    shadow-[0_0_18px_rgba(255,0,120,0.6)]
+    border border-pink-400/40
+    backdrop-blur-md
+    animate-[pulse_2s_ease-in-out_infinite]
+    relative overflow-hidden
+  "
+              >
+                <span className="z-10 drop-shadow-sm">
+                  {user && user.firstName[0]}
+                </span>
+
+                {/* shine overlay */}
+                <div
+                  className="
+      absolute top-0 left-0 w-full h-full
+      bg-gradient-to-br from-white/20 to-transparent
+      translate-y-[-100%]
+      animate-[slideDown_3s_infinite]
+    "
+                ></div>
+              </div>
+
+              {/* Profile Logo Start */}
             </button>
 
             {open && (

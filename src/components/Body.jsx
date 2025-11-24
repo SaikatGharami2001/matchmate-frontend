@@ -6,7 +6,7 @@ import BackgroundParticles from "../components/BackgroundParticles";
 const Body = () => {
   const location = useLocation();
 
-  const fullScreenPages = ["/", "/login", "/signup", "/about"];
+  const fullScreenPages = ["/", "/login", "/signup", "/about", "/messages"];
   const hideLayout = fullScreenPages.includes(location.pathname);
 
   return (

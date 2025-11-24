@@ -2,6 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
 
 import { useAuthStore } from "../store/useAuthStore";
 
@@ -34,7 +35,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:1234/login",
+        `${BASE_URL}/login`,
         { email, password },
         { withCredentials: true }
       );

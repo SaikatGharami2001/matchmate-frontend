@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -34,7 +35,7 @@ const SignUp = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:1234/signup", {
+      const res = await axios.post(`${BASE_URL}/signup`, {
         firstName,
         lastName,
         email,
