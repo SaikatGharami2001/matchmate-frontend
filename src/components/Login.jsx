@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("saikat@gmail.com");
+  const [password, setPassword] = useState("Raiden@199725");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -30,10 +30,12 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:1111/login",
+        "http://localhost:1234/login",
         { email, password },
         { withCredentials: true }
       );
+
+      console.log(res.data);
 
       setSuccessMessage("Login Successful 🎉 Redirecting...");
       setTimeout(() => navigate("/Dashboard"), 800);
