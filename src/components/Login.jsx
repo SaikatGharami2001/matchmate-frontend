@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useAuthStore } from "../store/useAuthStore";
+
 const Login = () => {
+  const loggedInUser = useAuthStore((state) => state.loggedInUser);
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("saikat@gmail.com");
   const [password, setPassword] = useState("Raiden@199725");
@@ -35,7 +39,7 @@ const Login = () => {
         { withCredentials: true }
       );
 
-      console.log(res.data);
+      loggedInUser(res.data);
 
       setSuccessMessage("Login Successful 🎉 Redirecting...");
       setTimeout(() => navigate("/Dashboard"), 800);

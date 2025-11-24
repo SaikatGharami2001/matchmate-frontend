@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useState, useRef, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import DropdownPortal from "./DropdownPortal";
+
+import { useAuthStore } from "../store/useAuthStore";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [fadeAnim, setFadeAnim] = useState(false);
   const dropdownRef = useRef(null);
   const { pathname } = useLocation();
-  const navigate = useNavigate();
+  const logoutUser = useAuthStore((state) => state.logoutUser);
 
   const [coords, setCoords] = useState({ top: 0, left: 0 });
   const [logout, setLogout] = useState("");
@@ -20,7 +22,7 @@ const Navbar = () => {
         {},
         { withCredentials: true }
       );
-      navigate("/");
+      logoutUser();
       setLogout("Logout Successful 🎉");
     } catch (err) {
       console.log(err.message);
