@@ -5,6 +5,7 @@ import Body from "./components/Body";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Dashboard from "./components/Dashboard";
+import Feed from "./components/Feed";
 import Messages from "./components/Messages";
 import Profile from "./components/Profile";
 import About from "./components/About";
@@ -26,6 +27,7 @@ function App() {
 
             <Route element={user ? <Outlet /> : <Navigate to="/login" />}>
               <Route path="dashboard" element={<Dashboard />} />
+              <Route path="feed" element={<Feed />} />
               <Route path="profile" element={<Profile />} />
               <Route path="messages" element={<Messages />} />
             </Route>

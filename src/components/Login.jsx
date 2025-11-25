@@ -18,7 +18,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true); // instant UI feedback
+    setLoading(true);
     setErrorMessage("");
     setSuccessMessage("");
 
@@ -117,7 +117,9 @@ const Login = () => {
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
+
         {/* Error / Success message */}
+
         <div className="h-8 mt-3 flex justify-center items-center">
           {successMessage && (
             <p className="text-green-400 font-semibold text-sm animate-fade-in">

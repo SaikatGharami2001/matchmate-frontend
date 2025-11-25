@@ -69,11 +69,7 @@ const Navbar = () => {
           {navItems.map((item) => (
             <Link
               key={item}
-              to={
-                item.toLowerCase() === "feed"
-                  ? "/dashboard"
-                  : `/${item.toLowerCase()}`
-              }
+              to={`${item.toLowerCase()}`}
               className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
             >
               {item}
