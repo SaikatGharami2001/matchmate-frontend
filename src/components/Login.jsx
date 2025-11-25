@@ -7,7 +7,8 @@ import { BASE_URL } from "../utils/constants";
 import { useAuthStore } from "../store/useAuthStore";
 
 const Login = () => {
-  const loggedInUser = useAuthStore((state) => state.loggedInUser);
+  const loggedInUserData = useAuthStore((state) => state.loggedInUserData);
+  const loggedInUserToken = useAuthStore((state) => state.loggedInUserToken);
 
   const navigate = useNavigate();
   const [email, setEmail] = useState("saikat@gmail.com");
@@ -40,7 +41,7 @@ const Login = () => {
         { withCredentials: true }
       );
 
-      loggedInUser(res.data);
+      loggedInUserData(res.data.userData);
 
       setSuccessMessage("Login Successful 🎉 Redirecting...");
       setTimeout(() => navigate("/Dashboard"), 800);

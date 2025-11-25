@@ -108,7 +108,6 @@ const Navbar = () => {
                 <span className="z-10 drop-shadow-sm">
                   {user && user.firstName[0]}
                 </span>
-
                 {/* shine overlay */}
                 <div
                   className="

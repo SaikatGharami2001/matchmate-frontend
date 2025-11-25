@@ -3,7 +3,6 @@ import { useAuthStore } from "../store/useAuthStore";
 
 const Dashboard = () => {
   const user = useAuthStore((state) => state.user);
-  console.log(user.firstName);
 
   return (
     <div className="relative z-10 min-h-screen w-full text-white flex flex-col px-6 py-10">

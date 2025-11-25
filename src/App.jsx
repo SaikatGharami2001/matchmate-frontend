@@ -15,7 +15,6 @@ import { useAuthStore } from "./store/useAuthStore";
 
 function App() {
   const user = useAuthStore((state) => state.user);
-
   return (
     <>
       <BrowserRouter basename="/">

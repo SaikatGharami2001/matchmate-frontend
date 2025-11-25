@@ -1,23 +1,23 @@
 import axios from "axios";
+import { useState, useEffect } from "react";
 import { BASE_URL } from "../utils/constants";
+
 import UserCard from "./UserCard";
-import { useEffect } from "react";
 
 const Feed = () => {
+  const [feedUser, setFeedUser] = useState([]);
+  const [cardIndex, setCardIndex] = useState(0);
+
   const getFeed = async () => {
     try {
-      const token = localStorage.getItem("token");
-      console.log("Token sending:", token);
-
       const res = await axios.get(BASE_URL + "/feed", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        withCredentials: true,
       });
 
-      console.log(res.data);
-    } catch (err) {
-      console.log("Feed error:", err.response?.data);
+      console.log("Feed data:", res.data.data);
+      setFeedUser(res.data.data);
+    } catch (error) {
+      console.log("Feed error:", error.message);
     }
   };
 
@@ -25,9 +25,35 @@ const Feed = () => {
     getFeed();
   }, []);
 
+  const currentUser = feedUser[cardIndex];
+
+  if (!currentUser) return null;
+  const { firstName, lastName } = currentUser;
+
+  const previousCard = () => setCardIndex((prev) => prev - 1);
+  const nextCard = () => setCardIndex((prev) => prev + 1);
+
   return (
     <div className="min-h-screen flex justify-center items-center px-4">
-      <UserCard />
+      {/* {feedUser &&
+        feedUser.map((res) => {
+          const age = 10;
+          const { firstName, lastName, _id } = res;
+          return (
+            <UserCard
+              key={res?._id}
+              firstName={firstName}
+              lastName={lastName}
+              age={age}
+            />
+          );
+        })} */}
+      <UserCard
+        firstName={firstName}
+        lastName={lastName}
+        prevCard={previousCard}
+        nextCard={nextCard}
+      />
     </div>
   );
 };
