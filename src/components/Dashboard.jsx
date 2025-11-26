@@ -19,7 +19,7 @@ const Dashboard = () => {
       </p>
 
       {/* CARDS GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto pointer-events-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto pointer-events-auto">
         {/* CARD 1 */}
         <Link
           to="/feed"
@@ -30,6 +30,16 @@ const Dashboard = () => {
           <p className="text-gray-300 text-sm">
             Discover new profiles near you
           </p>
+        </Link>
+
+        {/* CARD 2 */}
+        <Link
+          to="/connections"
+          className="p-6 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 
+          hover:border-pink-500/40 hover:shadow-[0_0_25px_rgba(255,0,130,0.45)] transition-all pointer-events-auto"
+        >
+          <h2 className="text-2xl font-bold mb-2 text-pink-400">Connections</h2>
+          <p className="text-gray-300 text-sm">Stay connected and chat</p>
         </Link>
 
         {/* CARD 2 */}

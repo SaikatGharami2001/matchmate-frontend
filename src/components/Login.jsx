@@ -40,8 +40,7 @@ const Login = () => {
         { email, password },
         { withCredentials: true }
       );
-
-      loggedInUserData(res.data.userData);
+      loggedInUserData(res.data);
 
       setSuccessMessage("Login Successful 🎉 Redirecting...");
       setTimeout(() => navigate("/Dashboard"), 800);

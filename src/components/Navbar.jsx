@@ -13,7 +13,6 @@ const Navbar = () => {
 
   const logoutUser = useAuthStore((state) => state.logoutUser);
   const user = useAuthStore((state) => state.user);
-  console.log(user);
 
   const [coords, setCoords] = useState({ top: 0, left: 0 });
   const [logout, setLogout] = useState("");
@@ -53,8 +52,7 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const navItems = ["Feed", "Messages", "About"];
-  console.log("USER IN STORE =>", useAuthStore.getState().user);
+  const navItems = ["Feed", "Connections", "Messages", "About"];
 
   return (
     <nav className="sticky top-0 z-[999999] isolate w-full border-b border-pink-600/20 bg-black/40 backdrop-blur-2xl shadow-[0_4px_30px_rgba(255,0,130,0.25)]">

@@ -1,6 +1,13 @@
-const UserCard = ({ user, prevCard, nextCard, disablePrev, disableNext }) => {
-  const { firstName, lastName, age } = user;
-
+const UserCard = ({
+  firstName,
+  lastName,
+  age,
+  user,
+  prevCard,
+  nextCard,
+  disablePrev,
+  disableNext,
+}) => {
   return (
     <div className="w-[420px] h-[520px] mx-auto bg-white/10 backdrop-blur-md border border-white/10 shadow-[0_0_20px_rgba(255,20,147,0.3)] rounded-3xl flex flex-col overflow-hidden">
       {/* Top Image */}

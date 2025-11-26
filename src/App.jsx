@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard";
 import Feed from "./components/Feed";
 import Messages from "./components/Messages";
 import Profile from "./components/Profile";
+import Connections from "./components/Connections";
 import About from "./components/About";
 
 import { Navigate } from "react-router-dom";
@@ -29,6 +30,7 @@ function App() {
               <Route path="feed" element={<Feed />} />
               <Route path="profile/edit" element={<Profile />} />
               <Route path="messages" element={<Messages />} />
+              <Route path="connections" element={<Connections />} />
             </Route>
 
             <Route path="about" element={<About />} />
