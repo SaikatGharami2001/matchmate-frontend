@@ -11,9 +11,7 @@ export const useConnectionStore = create((set) => ({
         withCredentials: true,
       });
 
-      const data = Array.isArray(res.data) ? res.data : res.data.data;
-
-      set({ connections: data || [] });
+      set({ connections: res.data });
     } catch (err) {
       console.log("Error fetching connections:", err);
       set({ connections: [] });
