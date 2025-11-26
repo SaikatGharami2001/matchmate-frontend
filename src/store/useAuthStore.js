@@ -4,7 +4,11 @@ import { persist } from "zustand/middleware";
 export const useAuthStore = create(
   persist((set) => ({
     user: null,
-    loggedInUserData: (data) => set({ user: data }),
+    loggedInUserData: (res) =>
+      set({
+        user: res.data ? res.data : res,
+      }),
+
     logoutUser: () => set({ user: null }),
   }))
 );

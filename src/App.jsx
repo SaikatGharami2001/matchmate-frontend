@@ -27,7 +27,7 @@ function App() {
             <Route element={user ? <Outlet /> : <Navigate to="/login" />}>
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="feed" element={<Feed />} />
-              <Route path="profile" element={<Profile />} />
+              <Route path="profile/edit" element={<Profile />} />
               <Route path="messages" element={<Messages />} />
             </Route>
 

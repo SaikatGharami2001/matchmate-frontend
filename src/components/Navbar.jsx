@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DropdownPortal from "./DropdownPortal";
 import { BASE_URL } from "../utils/constants";
 
@@ -10,10 +10,10 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [fadeAnim, setFadeAnim] = useState(false);
   const dropdownRef = useRef(null);
-  const { pathname } = useLocation();
 
   const logoutUser = useAuthStore((state) => state.logoutUser);
   const user = useAuthStore((state) => state.user);
+  console.log(user);
 
   const [coords, setCoords] = useState({ top: 0, left: 0 });
   const [logout, setLogout] = useState("");
@@ -53,7 +53,8 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const navItems = ["Feed", "Likes", "Messages", "About"];
+  const navItems = ["Feed", "Messages", "About"];
+  console.log("USER IN STORE =>", useAuthStore.getState().user);
 
   return (
     <nav className="sticky top-0 z-[999999] isolate w-full border-b border-pink-600/20 bg-black/40 backdrop-blur-2xl shadow-[0_4px_30px_rgba(255,0,130,0.25)]">
@@ -114,12 +115,11 @@ const Navbar = () => {
       absolute top-0 left-0 w-full h-full
       bg-gradient-to-br from-white/20 to-transparent
       translate-y-[-100%]
-      animate-[slideDown_3s_infinite]
-    "
+      animate-[slideDown_3s_infinite]"
                 ></div>
               </div>
 
-              {/* Profile Logo Start */}
+              {/* Profile Logo End */}
             </button>
 
             {open && (
@@ -141,7 +141,7 @@ const Navbar = () => {
                   <ul className="space-y-2">
                     <li>
                       <Link
-                        to="/profile"
+                        to="/profile/edit"
                         className="block px-3 py-2 rounded-lg hover:bg-pink-600/30 transition"
                       >
                         Profile
