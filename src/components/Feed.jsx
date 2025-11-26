@@ -7,6 +7,8 @@ import UserCard from "./UserCard";
 const Feed = () => {
   const [feedUser, setFeedUser] = useState([]);
   const [cardIndex, setCardIndex] = useState(0);
+  const [disablePrev, setDisablePrev] = useState(false);
+  const [disableNext, setDisableNext] = useState(false);
 
   const getFeed = async () => {
     try {
@@ -25,34 +27,31 @@ const Feed = () => {
     getFeed();
   }, []);
 
+  if (feedUser.length === 0) return <div>No users found</div>;
+
   const currentUser = feedUser[cardIndex];
 
   if (!currentUser) return null;
+
   const { firstName, lastName } = currentUser;
 
-  const previousCard = () => setCardIndex((prev) => prev - 1);
-  const nextCard = () => setCardIndex((prev) => prev + 1);
+  const previousCard = () => {
+    if (cardIndex > 0) setCardIndex(cardIndex - 1);
+  };
+
+  const nextCard = () => {
+    if (cardIndex < feedUser.length - 1) setCardIndex(cardIndex + 1);
+  };
 
   return (
     <div className="min-h-screen flex justify-center items-center px-4">
-      {/* {feedUser &&
-        feedUser.map((res) => {
-          const age = 10;
-          const { firstName, lastName, _id } = res;
-          return (
-            <UserCard
-              key={res?._id}
-              firstName={firstName}
-              lastName={lastName}
-              age={age}
-            />
-          );
-        })} */}
       <UserCard
         firstName={firstName}
         lastName={lastName}
         prevCard={previousCard}
         nextCard={nextCard}
+        disablePrev={cardIndex === 0}
+        disableNext={cardIndex === feedUser.length - 1}
       />
     </div>
   );

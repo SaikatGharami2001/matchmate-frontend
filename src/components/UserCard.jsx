@@ -1,4 +1,12 @@
-const UserCard = ({ firstName, lastName, age, prevCard, nextCard }) => {
+const UserCard = ({
+  firstName,
+  lastName,
+  age,
+  prevCard,
+  nextCard,
+  disablePrev,
+  disableNext,
+}) => {
   return (
     <div className="w-[420px] h-[520px] mx-auto bg-white/10 backdrop-blur-md border border-white/10 shadow-[0_0_20px_rgba(255,20,147,0.3)] rounded-3xl flex flex-col overflow-hidden">
       {/* Top Image */}
@@ -31,14 +39,23 @@ const UserCard = ({ firstName, lastName, age, prevCard, nextCard }) => {
         {/* Buttons */}
         <div className="flex gap-4 mt-4">
           <button
+            disabled={disablePrev}
             onClick={prevCard}
-            className="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition cursor-pointer"
+            className={` bg-blue-600 text-white px-6 py-2 rounded-full font-semibold transition
+          ${
+            disablePrev ? "opacity-40 cursor-not-allowed" : "hover:bg-blue-700"
+          }`}
           >
             Ignore
           </button>
+
           <button
+            disabled={disableNext}
             onClick={nextCard}
-            className="bg-gradient-to-r from-pink-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold hover:opacity-80 transition cursor-pointer"
+            className={`
+              bg-gradient-to-r from-pink-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold transition
+          ${disableNext ? "opacity-40 cursor-not-allowed" : "hover:opacity-80"}
+  `}
           >
             Interested
           </button>
