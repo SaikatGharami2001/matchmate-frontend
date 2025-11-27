@@ -52,7 +52,7 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const navItems = ["Feed", "Connections", "Messages", "About"];
+  const navItems = ["Feed", "Connections", "Messages", "Pending", "About"];
 
   return (
     <nav className="sticky top-0 z-[999999] isolate w-full border-b border-pink-600/20 bg-black/40 backdrop-blur-2xl shadow-[0_4px_30px_rgba(255,0,130,0.25)]">
@@ -65,24 +65,43 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
-          {navItems.map((item) => (
-            <Link
-              key={item}
-              to={`${item.toLowerCase()}`}
-              className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
-            >
-              {item}
-            </Link>
-          ))}
+          <Link
+            to="/feed"
+            className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
+          >
+            Feed
+          </Link>
+
+          <Link
+            to="/connections"
+            className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
+          >
+            Connections
+          </Link>
+
+          <Link
+            to="/messages"
+            className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
+          >
+            Messages
+          </Link>
+
+          <Link
+            to="/requests/pending"
+            className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
+          >
+            Requests
+          </Link>
+
+          <Link
+            to="/about"
+            className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
+          >
+            About
+          </Link>
         </div>
 
         <div className="flex items-center gap-5 relative z-[9999]">
-          <input
-            type="text"
-            placeholder="Search"
-            className="px-4 py-2 w-40 md:w-64 bg-neutral-900 text-gray-200 border border-neutral-700 rounded-xl placeholder-gray-500 focus:border-pink-600 focus:ring-2 focus:ring-pink-600 transition"
-          />
-
           <div ref={dropdownRef} className="relative">
             <button
               onClick={handleAvatarClick}

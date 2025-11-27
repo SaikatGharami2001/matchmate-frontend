@@ -1,7 +1,6 @@
 import { create } from "zustand";
 
-export const useRequestStore = create((set) => ({
+export const usePending = create((set) => ({
   requests: null,
-
-  addRequests: (data) => set({ requests: data }),
+  setRequests: (data) => set({ requests: data }),
 }));

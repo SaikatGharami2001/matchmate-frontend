@@ -25,11 +25,6 @@ const Connections = () => {
         {connections.map((connection) => {
           const { firstName, lastName, age, gender, _id } = connection;
 
-          console.log(firstName);
-          console.log(lastName);
-          console.log(age);
-          console.log(gender);
-
           return (
             <div
               key={_id}
