@@ -1,13 +1,32 @@
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
+
 const UserCard = ({
   firstName,
   lastName,
   age,
-  user,
   prevCard,
   nextCard,
   disablePrev,
   disableNext,
+  mode = "feed", // "feed" → Ignore/Interested | "pending" → Reject/Accept
+  acceptRequest,
+  rejectRequest,
+  requestId,
 }) => {
+  const handleSendRequest = async (status, toUserId) => {
+    try {
+      const res = axios.post(
+        `${BASE_URL}/request/send/${status}/${toUserId}`,
+        {},
+        { withCredentials: true }
+      );
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="w-[420px] h-[520px] mx-auto bg-white/10 backdrop-blur-md border border-white/10 shadow-[0_0_20px_rgba(255,20,147,0.3)] rounded-3xl flex flex-col overflow-hidden">
       {/* Top Image */}
@@ -39,27 +58,64 @@ const UserCard = ({
 
         {/* Buttons */}
         <div className="flex gap-4 mt-4">
-          <button
-            disabled={disablePrev}
-            onClick={prevCard}
-            className={` bg-blue-600 text-white px-6 py-2 rounded-full font-semibold transition
-          ${
-            disablePrev ? "opacity-40 cursor-not-allowed" : "hover:bg-blue-700"
-          }`}
-          >
-            Ignore
-          </button>
+          {/* FEED MODE */}
+          {mode === "feed" ? (
+            <>
+              {/* Ignore Button */}
+              <button
+                disabled={disablePrev}
+                onClick={prevCard}
+                className={`bg-blue-600 text-white px-6 py-2 rounded-full font-semibold transition
+                  active:scale-90 active:opacity-70
+                  ${
+                    disablePrev
+                      ? "opacity-40 cursor-not-allowed"
+                      : "hover:bg-blue-700"
+                  }
+                `}
+              >
+                Ignore
+              </button>
 
-          <button
-            disabled={disableNext}
-            onClick={nextCard}
-            className={`
-              bg-gradient-to-r from-pink-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold transition
-          ${disableNext ? "opacity-40 cursor-not-allowed" : "hover:opacity-80"}
-  `}
-          >
-            Interested
-          </button>
+              {/* Interested Button */}
+              <button
+                disabled={disableNext}
+                onClick={nextCard}
+                className={`bg-gradient-to-r from-pink-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold transition
+                  active:scale-90 active:opacity-70
+                  ${
+                    disableNext
+                      ? "opacity-40 cursor-not-allowed"
+                      : "hover:opacity-80"
+                  }
+                `}
+              >
+                Interested
+              </button>
+            </>
+          ) : (
+            <>
+              {/* PENDING MODE */}
+
+              {/* Reject Button */}
+              <button
+                onClick={() => rejectRequest(requestId)}
+                className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-full font-semibold transition 
+                  cursor-pointer active:scale-90 active:opacity-70"
+              >
+                Reject
+              </button>
+
+              {/* Accept Button */}
+              <button
+                onClick={() => acceptRequest(requestId)}
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold transition 
+                  cursor-pointer active:scale-90 active:opacity-70"
+              >
+                Accept
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

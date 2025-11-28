@@ -52,6 +52,7 @@ const Feed = () => {
         nextCard={nextCard}
         disablePrev={cardIndex === 0}
         disableNext={cardIndex === feedUser.length - 1}
+        mode="feed"
       />
     </div>
   );
