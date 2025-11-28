@@ -40,10 +40,13 @@ const Body = () => {
         <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
       )}
 
-      {!hideLayout && (
-        <div className="animate-fade-in">
-          <Footer />
-        </div>
+      {location.pathname === "/dashboard" && (
+        <>
+          <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
+          <div className="animate-fade-in">
+            <Footer />
+          </div>
+        </>
       )}
     </div>
   );
