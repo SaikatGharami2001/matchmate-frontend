@@ -146,7 +146,7 @@ const Login = () => {
         <p className="text-center text-sm text-gray-300 mt-2">
           Want to update your password?{" "}
           <span
-            onClick={() => navigate("/changePassword")}
+            onClick={() => navigate("/change-password")}
             className="text-pink-500 cursor-pointer hover:text-red-500 underline transition-all"
           >
             Change Password

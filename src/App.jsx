@@ -32,7 +32,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
-            <Route path="changePassword" element={<ChangePassword />} />
+            <Route path="change-password" element={<ChangePassword />} />
 
             <Route element={user ? <Outlet /> : <Navigate to="/login" />}>
               <Route path="dashboard" element={<Dashboard />} />
@@ -40,7 +40,7 @@ function App() {
               <Route path="profile/edit" element={<Profile />} />
               <Route path="messages/:targetUserId" element={<Messages />} />
               <Route path="connections" element={<Connections />} />
-              <Route path="/requests/pending" element={<Requests />} />
+              <Route path="requests/pending" element={<Requests />} />
             </Route>
 
             <Route path="about" element={<About />} />
