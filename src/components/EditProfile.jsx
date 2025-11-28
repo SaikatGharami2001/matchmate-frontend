@@ -9,7 +9,7 @@ const EditProfile = ({ user }) => {
   const [lastName, setLastName] = useState(user.lastName);
   const [age, setAge] = useState(user.age);
   const [password, setPassword] = useState("");
-  const [job, setJob] = useState("");
+  const [job, setJob] = useState(user.age);
 
   const loggedInUserData = useAuthStore((state) => state.loggedInUserData);
 
