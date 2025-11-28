@@ -52,8 +52,6 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const navItems = ["Feed", "Connections", "Messages", "Pending", "About"];
-
   return (
     <nav className="sticky top-0 z-[999999] isolate w-full border-b border-pink-600/20 bg-black/40 backdrop-blur-2xl shadow-[0_4px_30px_rgba(255,0,130,0.25)]">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -77,13 +75,6 @@ const Navbar = () => {
             className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
           >
             Connections
-          </Link>
-
-          <Link
-            to="/messages"
-            className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
-          >
-            Messages
           </Link>
 
           <Link

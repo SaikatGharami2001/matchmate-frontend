@@ -30,7 +30,7 @@ function App() {
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="feed" element={<Feed />} />
               <Route path="profile/edit" element={<Profile />} />
-              <Route path="messages" element={<Messages />} />
+              <Route path="messages/:targetUserId" element={<Messages />} />
               <Route path="connections" element={<Connections />} />
               <Route path="/requests/pending" element={<Requests />} />
             </Route>
