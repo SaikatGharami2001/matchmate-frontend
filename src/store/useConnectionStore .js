@@ -17,4 +17,9 @@ export const useConnectionStore = create((set) => ({
       set({ connections: [] });
     }
   },
+
+  removeConnection: (id) =>
+    set((state) => ({
+      connections: state.connections.filter((c) => c._id !== id),
+    })),
 }));

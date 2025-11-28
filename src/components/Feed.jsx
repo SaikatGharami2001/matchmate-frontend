@@ -1,44 +1,24 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { BASE_URL } from "../utils/constants";
-
+import { useEffect } from "react";
+import { useFeedStore } from "../store/useFeedStore";
 import UserCard from "./UserCard";
 
 const Feed = () => {
-  const [feedUser, setFeedUser] = useState([]);
-  const [cardIndex, setCardIndex] = useState(0);
-
-  const getFeed = async () => {
-    try {
-      const res = await axios.get(BASE_URL + "/feed", {
-        withCredentials: true,
-      });
-
-      console.log("Feed data:", res.data.data);
-      setFeedUser(res.data.data);
-    } catch (error) {
-      console.log("Feed error:", error.message);
-    }
-  };
+  const feed = useFeedStore((s) => s.feed);
+  const fetchFeed = useFeedStore((s) => s.fetchFeed);
 
   useEffect(() => {
-    getFeed();
+    fetchFeed();
   }, []);
 
-  if (feedUser.length === 0) return <div>No users found</div>;
-
-  const currentUser = feedUser[cardIndex];
-
-  if (!currentUser) return null;
-
-  const { firstName, lastName, _id } = currentUser;
+  if (feed.length === 0) return <div>No users found</div>;
 
   return (
     <div className="min-h-screen flex justify-center items-center px-4">
       <UserCard
-        _id={_id}
-        firstName={firstName}
-        lastName={lastName}
+        _id={feed[0]._id}
+        firstName={feed[0].firstName}
+        lastName={feed[0].lastName}
+        age={feed[0].age}
         mode="feed"
       />
     </div>
