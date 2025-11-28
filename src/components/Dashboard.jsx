@@ -44,6 +44,16 @@ const Dashboard = () => {
 
         {/* CARD 3 */}
         <Link
+          to="/requests/pending"
+          className="p-6 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 
+          hover:border-pink-500/40 hover:shadow-[0_0_25px_rgba(255,0,130,0.45)] transition-all pointer-events-auto"
+        >
+          <h2 className="text-2xl font-bold mb-2 text-pink-400">Requests</h2>
+          <p className="text-gray-300 text-sm">Check your friend requests</p>
+        </Link>
+
+        {/* CARD 4 */}
+        <Link
           to="/profile/edit"
           className="p-6 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 
           hover:border-pink-500/40 hover:shadow-[0_0_25px_rgba(255,0,130,0.45)] transition-all pointer-events-auto"
@@ -52,6 +62,16 @@ const Dashboard = () => {
           <p className="text-gray-300 text-sm">
             Manage your info & preferences
           </p>
+        </Link>
+
+        {/* CARD 5 */}
+        <Link
+          to="/about"
+          className="p-6 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 
+          hover:border-pink-500/40 hover:shadow-[0_0_25px_rgba(255,0,130,0.45)] transition-all pointer-events-auto"
+        >
+          <h2 className="text-2xl font-bold mb-2 text-pink-400">About</h2>
+          <p className="text-gray-300 text-sm">About Saikat Gharami</p>
         </Link>
       </div>
 
