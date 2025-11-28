@@ -8,6 +8,9 @@ const ChangePassword = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
+  const [showOldPassword, setShowOldPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -69,7 +72,6 @@ const ChangePassword = () => {
         </p>
 
         <form onSubmit={handleChangePassword}>
-          {/* Email */}
           <div className="mb-6">
             <label className="text-sm uppercase text-gray-300 tracking-widest font-semibold">
               Email Address
@@ -84,37 +86,54 @@ const ChangePassword = () => {
             />
           </div>
 
-          {/* Old Password */}
           <div className="mb-6">
             <label className="text-sm uppercase text-gray-300 tracking-widest font-semibold">
               Old Password
             </label>
-            <input
-              type="password"
-              value={oldPassword}
-              onChange={(e) => setOldPassword(e.target.value)}
-              className="mt-2 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-base
-            focus:border-red-600 focus:ring-2 focus:ring-red-600 outline-none"
-              placeholder="Enter old password"
-            />
+
+            <div className="relative mt-2">
+              <input
+                type={showOldPassword ? "text" : "password"}
+                value={oldPassword}
+                onChange={(e) => setOldPassword(e.target.value)}
+                className="w-full px-4 py-3 pr-12 bg-neutral-900 border border-neutral-700 rounded-xl text-base
+              focus:border-red-600 focus:ring-2 focus:ring-red-600 outline-none"
+                placeholder="Enter old password"
+              />
+
+              <span
+                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-300 hover:text-white text-sm"
+                onClick={() => setShowOldPassword(!showOldPassword)}
+              >
+                {showOldPassword ? "Hide" : "Show"}
+              </span>
+            </div>
           </div>
 
-          {/* New Password */}
           <div className="mb-8">
             <label className="text-sm uppercase text-gray-300 tracking-widest font-semibold">
               New Password
             </label>
-            <input
-              type="password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              className="mt-2 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-base
-            focus:border-pink-600 focus:ring-2 focus:ring-pink-600 outline-none"
-              placeholder="Enter new password"
-            />
+
+            <div className="relative mt-2">
+              <input
+                type={showNewPassword ? "text" : "password"}
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                className="w-full px-4 py-3 pr-12 bg-neutral-900 border border-neutral-700 rounded-xl text-base
+              focus:border-pink-600 focus:ring-2 focus:ring-pink-600 outline-none"
+                placeholder="Enter new password"
+              />
+
+              <span
+                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-300 hover:text-white text-sm"
+                onClick={() => setShowNewPassword(!showNewPassword)}
+              >
+                {showNewPassword ? "Hide" : "Show"}
+              </span>
+            </div>
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
@@ -128,7 +147,6 @@ const ChangePassword = () => {
           </button>
         </form>
 
-        {/* Error & Success */}
         <div className="mt-4 h-6 text-center">
           {errorMessage && (
             <p className="text-red-400 font-semibold animate-fade-in">
@@ -143,7 +161,6 @@ const ChangePassword = () => {
           )}
         </div>
 
-        {/* Login Link */}
         <div className="mt-6 text-center">
           <span
             onClick={() => navigate("/login")}
