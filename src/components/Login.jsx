@@ -68,6 +68,7 @@ const Login = () => {
         <p className="text-center text-sm text-gray-400 mb-8 tracking-wide">
           Your journey continues — let’s get connected.
         </p>
+
         <form onSubmit={handleLogin}>
           {/* Email */}
           <div className="flex flex-col gap-2 mb-4">
@@ -117,7 +118,6 @@ const Login = () => {
         </form>
 
         {/* Error / Success message */}
-
         <div className="h-8 mt-3 flex justify-center items-center">
           {successMessage && (
             <p className="text-green-400 font-semibold text-sm animate-fade-in">
@@ -131,6 +131,7 @@ const Login = () => {
           )}
         </div>
 
+        {/* Signup Link */}
         <p className="text-center text-sm text-gray-300 mt-6">
           Don’t have an account?{" "}
           <Link
@@ -139,6 +140,17 @@ const Login = () => {
           >
             Sign Up
           </Link>
+        </p>
+
+        {/* 🔥 NEW CHANGE PASSWORD LINK */}
+        <p className="text-center text-sm text-gray-300 mt-2">
+          Want to update your password?{" "}
+          <span
+            onClick={() => navigate("/changePassword")}
+            className="text-pink-500 cursor-pointer hover:text-red-500 underline transition-all"
+          >
+            Change Password
+          </span>
         </p>
       </div>
     </div>

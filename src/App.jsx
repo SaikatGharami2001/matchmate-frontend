@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import Body from "./components/Body";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import ChangePassword from "./components/ChangePassword";
 import Dashboard from "./components/Dashboard";
 import Feed from "./components/Feed";
 import Messages from "./components/Messages";
@@ -31,6 +32,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
+            <Route path="changePassword" element={<ChangePassword />} />
 
             <Route element={user ? <Outlet /> : <Navigate to="/login" />}>
               <Route path="dashboard" element={<Dashboard />} />
