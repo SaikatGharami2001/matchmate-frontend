@@ -10,7 +10,9 @@ const Feed = () => {
     fetchFeed();
   }, []);
 
-  if (feed.length === 0) return <div>No users found</div>;
+  if (!feed || feed.length === 0) return <div>No users found</div>;
+
+  console.log(feed[0]);
 
   return (
     <div className="min-h-screen flex justify-center items-center px-4">
@@ -19,6 +21,8 @@ const Feed = () => {
         firstName={feed[0].firstName}
         lastName={feed[0].lastName}
         age={feed[0].age}
+        gender={feed[0].gender}
+        job={feed[0].job}
         mode="feed"
       />
     </div>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useConnectionStore } from "../store/useConnectionStore ";
+import { useConnectionStore } from "../store/useConnectionStore";
 import { useNavigate } from "react-router-dom";
 
 const Connections = () => {

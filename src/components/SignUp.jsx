@@ -10,6 +10,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
+  const [job, setJob] = useState("");
 
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,7 +24,15 @@ const SignUp = () => {
     setSuccessMessage("");
     setErrorMessage("");
 
-    if (!firstName || !lastName || !email || !password || !age || !gender) {
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !password ||
+      !age ||
+      !gender ||
+      !job
+    ) {
       setLoading(false);
       setErrorMessage("Please fill all fields");
 
@@ -42,9 +51,12 @@ const SignUp = () => {
         password,
         age,
         gender,
+        job,
       });
 
-      setSuccessMessage(res.data.Message + " 🎉 Redirecting...");
+      console.log(res);
+
+      setSuccessMessage("Account created successfully! 🎉 Redirecting...");
       setTimeout(() => navigate("/login"), 1200);
 
       setFirstName("");
@@ -53,6 +65,7 @@ const SignUp = () => {
       setPassword("");
       setAge("");
       setGender("");
+      setJob("");
     } catch (err) {
       setErrorMessage(err.response?.data?.Message || "Something went wrong");
     } finally {
@@ -141,6 +154,19 @@ const SignUp = () => {
               type="number"
               value={age}
               onChange={(e) => setAge(e.target.value)}
+              className="mt-2 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-base
+              focus:border-pink-600 focus:ring-2 focus:ring-pink-600 outline-none"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label className="text-sm uppercase text-gray-300 tracking-widest font-semibold">
+              Job
+            </label>
+            <input
+              type="text"
+              value={job}
+              onChange={(e) => setJob(e.target.value)}
               className="mt-2 w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-xl text-base
               focus:border-pink-600 focus:ring-2 focus:ring-pink-600 outline-none"
             />

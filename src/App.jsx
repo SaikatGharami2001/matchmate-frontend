@@ -1,4 +1,10 @@
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet,
+  Navigate,
+} from "react-router-dom";
 
 import Home from "./components/Home";
 import Body from "./components/Body";
@@ -12,11 +18,11 @@ import Connections from "./components/Connections";
 import Requests from "./components/Requests";
 import About from "./components/About";
 
-import { Navigate } from "react-router-dom";
 import { useAuthStore } from "./store/useAuthStore";
 
 function App() {
   const user = useAuthStore((state) => state.user);
+
   return (
     <>
       <BrowserRouter basename="/">

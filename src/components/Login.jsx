@@ -1,14 +1,12 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
 import { useAuthStore } from "../store/useAuthStore";
 
 const Login = () => {
   const loggedInUserData = useAuthStore((state) => state.loggedInUserData);
-  const loggedInUserToken = useAuthStore((state) => state.loggedInUserToken);
 
   const navigate = useNavigate();
   const [email, setEmail] = useState("saikat@gmail.com");
@@ -43,7 +41,7 @@ const Login = () => {
       loggedInUserData(res.data);
 
       setSuccessMessage("Login Successful 🎉 Redirecting...");
-      setTimeout(() => navigate("/Dashboard"), 800);
+      setTimeout(() => navigate("/dashboard"), 800);
     } catch (err) {
       setErrorMessage(
         err.response?.data?.Message || "Invalid email or password"

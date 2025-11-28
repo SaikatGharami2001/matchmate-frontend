@@ -1,37 +1,25 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { useConnectionStore } from "../store/useConnectionStore ";
-import { useAuthStore } from "../store/useAuthStore";
-
-import { createSocketConnection } from "../utils/socket";
+import { useConnectionStore } from "../store/useConnectionStore";
 
 const Messages = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const navigate = useNavigate();
-  const { targetUserId } = useParams();
 
   const connections = useConnectionStore((state) => state.connections);
-  const user = useAuthStore((state) => state.user);
-
-  const userId = user._id;
-
-  useEffect(() => {
-    const socket = createSocketConnection();
-    socket.emit("join", { userId, targetUserId });
-  }, []);
 
   return (
     <div
       className="w-full h-[85vh] rounded-3xl overflow-hidden 
-                    bg-white/5 backdrop-blur-2xl border border-pink-500/20 
-                    shadow-[0_0_40px_rgba(255,0,150,0.25)] flex"
+                  bg-white/5 backdrop-blur-2xl border border-pink-500/20 
+                  shadow-[0_0_40px_rgba(255,0,150,0.25)] flex"
     >
       {/* Sidebar */}
       <aside className="w-[22%] bg-black/30 border-r border-pink-500/30 p-5 flex flex-col gap-6 backdrop-blur-2xl">
         <h2
           className="text-3xl font-extrabold text-transparent bg-clip-text 
-                       bg-gradient-to-r from-pink-500 to-yellow-400 tracking-wide drop-shadow-lg"
+                     bg-gradient-to-r from-pink-500 to-yellow-400 tracking-wide drop-shadow-lg"
         >
           Messages
         </h2>
@@ -59,8 +47,8 @@ const Messages = () => {
             >
               <div
                 className="w-12 h-12 rounded-full bg-black/40 
-                              border-2 border-pink-600 flex items-center justify-center 
-                              text-xl font-extrabold text-white shadow-[0_0_15px_rgba(255,0,150,0.4)]"
+                            border-2 border-pink-600 flex items-center justify-center 
+                            text-xl font-extrabold text-white shadow-[0_0_15px_rgba(255,0,150,0.4)]"
               >
                 {user.firstName[0]}
               </div>
@@ -76,23 +64,24 @@ const Messages = () => {
       {/* Chat Section */}
       <section
         className="flex-1 flex flex-col relative 
-                          bg-gradient-to-br from-pink-600/10 via-purple-800/10 to-black/10 
-                          animate-[pulse_6s_ease-in-out_infinite]"
+                    bg-gradient-to-br from-pink-600/10 via-purple-800/10 to-black/10 
+                    animate-[pulse_6s_ease-in-out_infinite]"
       >
         {/* Header */}
         <div
           className="h-20 border-b border-pink-500/30 px-8 flex items-center gap-4 
-                        bg-black/20 backdrop-blur-2xl"
+                      bg-black/20 backdrop-blur-2xl"
         >
           {selectedUser ? (
             <div className="flex items-center gap-4">
               <div
                 className="w-12 h-12 rounded-full bg-black/40 border-2 border-pink-600 
-                              flex items-center justify-center text-xl font-extrabold text-white 
-                              shadow-[0_0_15px_rgba(255,0,150,0.4)]"
+                            flex items-center justify-center text-xl font-extrabold text-white 
+                            shadow-[0_0_15px_rgba(255,0,150,0.4)]"
               >
                 {selectedUser.firstName[0]}
               </div>
+
               <h1 className="text-2xl font-extrabold text-white tracking-wide">
                 {selectedUser.firstName} {selectedUser.lastName}
               </h1>
@@ -118,7 +107,7 @@ const Messages = () => {
         {/* Input */}
         <div
           className="h-20 border-t border-pink-500/30 px-6 flex items-center gap-3 
-                        bg-black/30 backdrop-blur-xl"
+                      bg-black/30 backdrop-blur-xl"
         >
           <input
             disabled={!selectedUser}

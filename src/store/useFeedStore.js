@@ -11,10 +11,13 @@ export const useFeedStore = create((set) => ({
         withCredentials: true,
       });
 
-      set({ feed: res.data.data });
+      // Validate safe array response
+      const data = Array.isArray(res.data?.data) ? res.data.data : [];
+
+      set({ feed: data });
     } catch (err) {
-      console.log("Feed error:", err);
-      set({ feed: [] });
+      console.log("Feed API error:", err.message);
+      // Do NOT force empty feed — keep previous feed so UI doesn't break
     }
   },
 

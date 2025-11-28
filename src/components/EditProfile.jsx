@@ -9,6 +9,7 @@ const EditProfile = ({ user }) => {
   const [lastName, setLastName] = useState(user.lastName);
   const [age, setAge] = useState(user.age);
   const [password, setPassword] = useState("");
+  const [job, setJob] = useState("");
 
   const loggedInUserData = useAuthStore((state) => state.loggedInUserData);
 
@@ -16,15 +17,14 @@ const EditProfile = ({ user }) => {
     try {
       const res = await axios.patch(
         `${BASE_URL}/profile/edit`,
-        { firstName, lastName, age, password },
+        { firstName, lastName, age, password, job },
         { withCredentials: true }
       );
-      if (password.trim() !== "") return loggedInUserData.password;
+
       loggedInUserData(res.data);
-      console.log("Profile updated:", res.data);
+
       alert("Profile updated!");
     } catch (err) {
-      console.log(err);
       alert("Failed to update profile!");
     }
   };
@@ -76,6 +76,17 @@ const EditProfile = ({ user }) => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="w-full mt-1 px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white"
+          />
+        </div>
+
+        {/* JOB */}
+        <div className="mb-4">
+          <label className="text-pink-300 text-sm">Job</label>
+          <input
+            type="text"
+            value={job}
+            onChange={(e) => setJob(e.target.value)}
             className="w-full mt-1 px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white"
           />
         </div>
