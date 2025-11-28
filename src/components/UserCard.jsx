@@ -1,35 +1,37 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
+import { useFeedStore } from "../store/useFeedStore";
 
 const UserCard = ({
+  _id,
   firstName,
   lastName,
   age,
-  prevCard,
-  nextCard,
-  disablePrev,
-  disableNext,
-  mode = "feed", // "feed" → Ignore/Interested | "pending" → Reject/Accept
+  mode = "feed",
   acceptRequest,
   rejectRequest,
   requestId,
 }) => {
-  const handleSendRequest = async (status, toUserId) => {
+  const removeUserFromFeed = useFeedStore((state) => state.removeUserFromFeed);
+
+  const handleSendRequest = async (status, userId) => {
     try {
-      const res = axios.post(
-        `${BASE_URL}/request/send/${status}/${toUserId}`,
+      await axios.post(
+        `${BASE_URL}/request/send/${status}/${userId}`,
         {},
         { withCredentials: true }
       );
-      console.log(res);
+
+      removeUserFromFeed(userId);
     } catch (err) {
       console.log(err);
+    } finally {
+      console.log("Request finished");
     }
   };
 
   return (
     <div className="w-[420px] h-[520px] mx-auto bg-white/10 backdrop-blur-md border border-white/10 shadow-[0_0_20px_rgba(255,20,147,0.3)] rounded-3xl flex flex-col overflow-hidden">
-      {/* Top Image */}
       <div className="h-[60%] w-full bg-gray-700">
         <img
           src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
@@ -38,9 +40,7 @@ const UserCard = ({
         />
       </div>
 
-      {/* Bottom Section */}
       <div className="flex flex-col items-center gap-2 py-2 px-4">
-        {/* Name + Age */}
         <h2 className="text-2xl font-bold text-white flex items-center gap-2">
           {firstName} {lastName}, <span className="text-pink-300">{age}</span>
         </h2>
@@ -49,7 +49,6 @@ const UserCard = ({
           Coffee lover ☕ | Fitness 🏋️‍♀️ | Looking for real vibe
         </p>
 
-        {/* Stats */}
         <div className="flex gap-6 mt-1 text-white font-semibold text-sm">
           <span>📏 5'6</span>
           <span>🏋️ 56kg</span>
@@ -58,59 +57,38 @@ const UserCard = ({
 
         {/* Buttons */}
         <div className="flex gap-4 mt-4">
-          {/* FEED MODE */}
           {mode === "feed" ? (
             <>
-              {/* Ignore Button */}
+              {/* Ignore */}
               <button
-                disabled={disablePrev}
-                onClick={prevCard}
-                className={`bg-blue-600 text-white px-6 py-2 rounded-full font-semibold transition
-                  active:scale-90 active:opacity-70
-                  ${
-                    disablePrev
-                      ? "opacity-40 cursor-not-allowed"
-                      : "hover:bg-blue-700"
-                  }
-                `}
+                onClick={() => handleSendRequest("ignored", _id)}
+                className="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold transition hover:bg-blue-700 active:scale-90 active:opacity-70"
               >
                 Ignore
               </button>
 
-              {/* Interested Button */}
+              {/* Interested */}
               <button
-                disabled={disableNext}
-                onClick={nextCard}
-                className={`bg-gradient-to-r from-pink-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold transition
-                  active:scale-90 active:opacity-70
-                  ${
-                    disableNext
-                      ? "opacity-40 cursor-not-allowed"
-                      : "hover:opacity-80"
-                  }
-                `}
+                onClick={() => handleSendRequest("interested", _id)}
+                className="bg-gradient-to-r from-pink-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold transition hover:opacity-80 active:scale-90 active:opacity-70"
               >
                 Interested
               </button>
             </>
           ) : (
             <>
-              {/* PENDING MODE */}
-
-              {/* Reject Button */}
+              {/* Reject */}
               <button
                 onClick={() => rejectRequest(requestId)}
-                className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-full font-semibold transition 
-                  cursor-pointer active:scale-90 active:opacity-70"
+                className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-full font-semibold transition active:scale-90 active:opacity-70"
               >
                 Reject
               </button>
 
-              {/* Accept Button */}
+              {/* Accept */}
               <button
                 onClick={() => acceptRequest(requestId)}
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold transition 
-                  cursor-pointer active:scale-90 active:opacity-70"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold transition active:scale-90 active:opacity-70"
               >
                 Accept
               </button>
