@@ -11,6 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -70,7 +71,6 @@ const Login = () => {
         </p>
 
         <form onSubmit={handleLogin}>
-          {/* Email */}
           <div className="flex flex-col gap-2 mb-4">
             <label className="text-xs font-semibold tracking-widest text-gray-300">
               EMAIL ADDRESS
@@ -86,24 +86,32 @@ const Login = () => {
             />
           </div>
 
-          {/* Password */}
           <div className="flex flex-col gap-2 mb-6">
             <label className="text-xs font-semibold tracking-widest text-gray-300">
               PASSWORD
             </label>
-            <input
-              type="password"
-              value={password}
-              onKeyDown={(e) => e.key === "Enter" && handleLogin(e)}
-              onChange={(e) => setPassword(e.target.value)}
-              className="px-4 py-3 rounded-xl bg-gray-900/60 border border-white/10 
-            focus:ring-2 focus:ring-red-500 focus:border-red-500
-            outline-none text-sm placeholder-gray-500 transition-all"
-              placeholder="Enter password"
-            />
+
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onKeyDown={(e) => e.key === "Enter" && handleLogin(e)}
+                onChange={(e) => setPassword(e.target.value)}
+                className="px-4 py-3 pr-12 rounded-xl bg-gray-900/60 border border-white/10 
+                focus:ring-2 focus:ring-red-500 focus:border-red-500
+                outline-none text-sm placeholder-gray-500 transition-all w-full"
+                placeholder="Enter password"
+              />
+
+              <span
+                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-300 hover:text-white text-sm"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </span>
+            </div>
           </div>
 
-          {/* Login Button */}
           <button
             type="submit"
             disabled={loading}
@@ -117,7 +125,6 @@ const Login = () => {
           </button>
         </form>
 
-        {/* Error / Success message */}
         <div className="h-8 mt-3 flex justify-center items-center">
           {successMessage && (
             <p className="text-green-400 font-semibold text-sm animate-fade-in">
@@ -131,7 +138,6 @@ const Login = () => {
           )}
         </div>
 
-        {/* Signup Link */}
         <p className="text-center text-sm text-gray-300 mt-6">
           Don’t have an account?{" "}
           <Link
@@ -142,7 +148,6 @@ const Login = () => {
           </Link>
         </p>
 
-        {/* 🔥 NEW CHANGE PASSWORD LINK */}
         <p className="text-center text-sm text-gray-300 mt-2">
           Want to update your password?{" "}
           <span
