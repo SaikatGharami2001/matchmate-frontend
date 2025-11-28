@@ -1,13 +1,25 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
 import { useConnectionStore } from "../store/useConnectionStore ";
+import { useAuthStore } from "../store/useAuthStore";
+
+import { createSocketConnection } from "../utils/socket";
 
 const Messages = () => {
-  const { targetUserId } = useParams();
-  const { connections } = useConnectionStore();
-  const navigate = useNavigate();
-
   const [selectedUser, setSelectedUser] = useState(null);
+  const navigate = useNavigate();
+  const { targetUserId } = useParams();
+
+  const connections = useConnectionStore((state) => state.connections);
+  const user = useAuthStore((state) => state.user);
+
+  const userId = user._id;
+
+  useEffect(() => {
+    const socket = createSocketConnection();
+    socket.emit("join", { userId, targetUserId });
+  }, []);
 
   return (
     <div
