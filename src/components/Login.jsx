@@ -93,7 +93,7 @@ const Login = () => {
             <input
               type="password"
               value={password}
-              onKeyDown={(e) => e.key === "Enter" && handleLogin()}
+              onKeyDown={(e) => e.key === "Enter" && handleLogin(e)}
               onChange={(e) => setPassword(e.target.value)}
               className="px-4 py-3 rounded-xl bg-gray-900/60 border border-white/10 
             focus:ring-2 focus:ring-red-500 focus:border-red-500
