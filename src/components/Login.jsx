@@ -9,8 +9,8 @@ const Login = () => {
   const loggedInUserData = useAuthStore((state) => state.loggedInUserData);
 
   const navigate = useNavigate();
-  const [email, setEmail] = useState("saikat@gmail.com");
-  const [password, setPassword] = useState("Raiden@199725");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
