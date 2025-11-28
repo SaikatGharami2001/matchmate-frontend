@@ -49,7 +49,7 @@ const Requests = () => {
   const accept = async (requestId) => {
     try {
       await reviewRequest("accepted", requestId);
-      setRequests((prev) => prev.filter((req) => req.requestId !== requestId));
+      setRequests((prev) => prev.filter((req) => req._id !== requestId));
     } catch (err) {
       console.log("Error accepting:", err);
     }
@@ -58,7 +58,7 @@ const Requests = () => {
   const reject = async (requestId) => {
     try {
       await reviewRequest("rejected", requestId);
-      setRequests((prev) => prev.filter((req) => req.requestId !== requestId));
+      setRequests((prev) => prev.filter((req) => req._id !== requestId));
     } catch (err) {
       console.log("Error rejecting:", err);
     }
@@ -67,8 +67,8 @@ const Requests = () => {
   return (
     <div className="flex flex-wrap gap-6 justify-center">
       {requests.map((req) => {
-        const { requestId, user } = req;
-        const { firstName, lastName, age, _id } = user;
+        const { _id: requestId, user } = req;
+        const { firstName, lastName, age } = user;
 
         return (
           <UserCard
