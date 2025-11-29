@@ -110,3 +110,26 @@ vite.config.js
 vercel.json
 package.json
 package-lock.json
+
+matchmate-frontend/
+├── src/
+│ ├── assets/ # Images, icons, design assets
+│ ├── components/ # Reusable UI components
+│ ├── hooks/ # Custom hooks
+│ ├── store/ # Zustand global stores
+│ │ ├── useAuthStore.js
+│ │ ├── useConnectionStore.js
+│ │ ├── useFeedStore.js
+│ │ └── usePending.js
+│ ├── utils/
+│ │ └── constants.js # API base URLs, helper constants
+│ ├── app.css
+│ ├── App.jsx # Application routes
+│ └── main.jsx # Vite entry file
+│
+├── index.html
+├── .env # Environment variables
+├── vite.config.js
+├── vercel.json # Deployment config
+├── eslint.config.js
+└── package.json
