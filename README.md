@@ -23,6 +23,24 @@ Future updates will include messaging, notifications, and real-time features.
 
 ---
 
+# 📚 **Table of Contents**
+
+- [🔐 Authentication](#-authentication)
+- [👥 Connection System](#-connection-system)
+- [👤 User Profile](#-user-profile)
+- [⚡ Performance](#-performance)
+- [📸 Screenshots](#-screenshots)
+- [🌍 Live Demo](#-live-demo)
+- [⚙️ Getting Started](#️-getting-started)
+- [🧱 Project Structure](#-project-structure)
+- [❌ Architecture](#-how-it-works--architecture)
+- [🛠 Roadmap](#-roadmap)
+- [🤝 Contributing](#-contributing)
+- [👨‍💻 Author](#-author)
+- [📄 License](#-license)
+
+---
+
 ## 🔐 **Authentication**
 
 - Signup / Login / Logout
@@ -62,85 +80,29 @@ Future updates will include messaging, notifications, and real-time features.
 
 ---
 
-## 🧱 **Project Structure**
-
-matchmate-frontend/
-src/
-assets/ (images, icons, previews)
-
-    components/                  (reusable UI components)
-      About.jsx
-      BackgroundParticles.jsx
-      Body.jsx
-      ChangePassword.jsx
-      Connections.jsx
-      Dashboard.jsx
-      DropdownPortal.jsx
-      EditProfile.jsx
-      Feed.jsx
-      Footer.jsx
-      Home.jsx
-      Login.jsx
-      Messages.jsx
-      Navbar.jsx
-      Profile.jsx
-      Requests.jsx
-      SignUp.jsx
-      UserCard.jsx
-
-    hooks/                       (custom React hooks)
-
-    store/                       (Zustand stores)
-      useAuthStore.js
-      useConnectionStore.js
-      useFeedStore.js
-      usePending.js
-
-    utils/
-      constants.js               (base URLs & constants)
-
-    app.css
-    App.jsx                      (app + routes)
-    main.jsx                     (Vite entry point)
-
-.env (environment variables)
-index.html
-eslint.config.js
-vite.config.js
-vercel.json
-package.json
-package-lock.json
-
-🔗 Live Demo
-
-👉 https://matchmate-frontend.vercel.app
-
-🔌 Backend API Repository
-
-👉 https://github.com/yourusername/matchmate-backend
-
-## ❌ How It Works – Architecture
-
-```txt
-Frontend (React + Zustand + Axios)
-    |
-    |  HTTP (JWT, Cookies)
-    v
-Backend (Node.js + Express + MongoDB)
-    |
-    |  Mongoose Models
-    v
-Database (MongoDB Atlas)
-```
-
-- Frontend handles all UI + state.
-- Backend handles auth, connections, secure cookies, hashing.
-- Both communicate via REST APIs.
-
-## 🧱 **📸 Screenshots**
+# 📸 **Screenshots**
 
 ![Home](src/assets/home.png)
 ![SignUp](src/assets/signup.png)
 ![Login](src/assets/login.png)
 ![Dashboard](src/assets/dashboard.png)
 ![Feed](src/assets/feed.png)
+
+---
+
+# 🌍 **Live Demo**
+
+👉 https://matchmate-frontend.vercel.app
+
+---
+
+# ⚙️ **Getting Started**
+
+Follow these steps to run the project locally.
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/SaikatGharami2001/matchmate-frontend.git
+cd matchmate-frontend
+```
