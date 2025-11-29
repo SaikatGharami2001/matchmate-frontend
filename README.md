@@ -1,39 +1,55 @@
-🚀 Core Features
+MatchMate – Frontend (React + Vite) 🚀
+
+A modern, fast, and secure frontend for MatchMate, a social networking platform built for managing real human connections.
+This UI focuses on clean design, efficient state management, and production-ready architecture.
+Future versions will include messaging and real-time features.
+
+🔥 Core Features
 🔐 Authentication
 
-Signup, Login, Logout
+Signup / Login / Logout
 
 JWT-based authentication
 
 Secure HTTP-only cookies
 
-Password hashing (backend integration)
+Password hashing (via backend)
+
+Persistent login state
 
 👥 Connection System
 
-Browse users
+Browse all users
 
 Send connection requests
 
-Accept or ignore requests
+Accept / Ignore incoming requests
 
 Manage pending & received requests
 
-👤 Profile
+Smooth UI state updates using Zustand
+
+👤 User Profile
 
 Edit profile information
 
-View basic user info
+View user details
 
-Responsive layout for all screens
+Fully responsive layout
 
-💨 Performance
+Reusable component design
+
+⚡ Performance
 
 Optimized state management
 
-API calls with Axios + lean responses
+Lean API calls with Axios
 
-Smooth transitions & minimal rerenders
+Fast routing via React Router
+
+Minimal re-renders
+
+Tailwind-based UI for consistent styling
 
 🛠️ Tech Stack
 Category Technologies
@@ -42,11 +58,9 @@ Routing React Router
 State Management Zustand
 HTTP Client Axios
 Styling Tailwind CSS
-Env & Build Vite
+Build Tool Vite
+Deployment Vercel
 📁 Project Structure
-
-This section matches your exact repo:
-
 matchmate-frontend/
 ├── src/
 │ ├── assets/ # Images, icons, design assets
@@ -58,9 +72,9 @@ matchmate-frontend/
 │ │ ├── useFeedStore.js
 │ │ └── usePending.js
 │ ├── utils/
-│ │ └── constants.js # Config, base URLs, helper constants
+│ │ └── constants.js # API base URLs, helper constants
 │ ├── app.css
-│ ├── App.jsx # App component + routes
+│ ├── App.jsx # Application routes
 │ └── main.jsx # Vite entry file
 │
 ├── index.html
@@ -70,16 +84,13 @@ matchmate-frontend/
 ├── eslint.config.js
 └── package.json
 
-Clear, professional — recruiters love this section.
-
 🔗 Live Demo
 
-Add your Vercel link here once deployed:
-https://matchmate-frontend.vercel.app
+👉 https://matchmate-frontend.vercel.app
 
 📸 Screenshots
 
-Place your screenshots in src/assets/screenshots/ and add them here:
+Add preview images in src/assets/screenshots/:
 
 ![Home Page](src/assets/screenshots/home.png)
 ![Profile Page](src/assets/screenshots/profile.png)
@@ -87,42 +98,42 @@ Place your screenshots in src/assets/screenshots/ and add them here:
 
 ⚙️ Installation & Setup
 
-1. Clone Repository
+1. Clone repository
    git clone https://github.com/yourusername/matchmate-frontend.git
    cd matchmate-frontend
 
-2. Install Dependencies
+2. Install dependencies
    npm install
 
-3. Add Environment Variables
+3. Create environment file
 
-Create .env:
+.env
 
 VITE_BASE_URL=https://your-backend-url.com
 
-4. Run Development Server
+4. Start dev server
    npm run dev
 
-5. Build for Production
+5. Build for production
    npm run build
 
-🧠 Architecture Design Notes
+🧠 Architecture Notes
 
-Zustand-based store separation for Auth, Feed, Pending, and Connections → clean logic & maintainability
+Modular Zustand stores → auth, connection, feed, pending
 
-Isolated utils for better reuse
+Component-driven UI → scalable structure
 
-Component-first structure ensures scalable UI growth
+Axios prepared for interceptors → token refresh + error handling
 
-API integration via Axios with interceptors (if added later)
+Utilities extracted for clean constants
 
-Future-ready structure for messaging module + real-time updates
+Vite ensures fast dev & optimized builds
 
-This section shows you think like a real developer.
+Future-ready for messaging + real-time systems
 
 🔮 Future Enhancements
 
-Real-time chat (WebSockets / Socket.io)
+Real-time chat (Socket.io / WebSockets)
 
 Push notifications
 
@@ -130,7 +141,9 @@ Profile photo upload
 
 Dark mode
 
-UI transitions & micro-interactions
+Micro-interactions from Framer Motion
+
+Infinite scroll for feed
 
 📄 License
 
