@@ -136,3 +136,9 @@ Database (MongoDB Atlas)
 - Frontend handles all UI + state.
 - Backend handles auth, connections, secure cookies, hashing.
 - Both communicate via REST APIs.
+
+## 🧱 **📸 Screenshots**
+
+![Home](src/assets/screenshots/home.png)
+![Profile](src/assets/screenshots/profile.png)
+![Requests](src/assets/screenshots/requests.png)
