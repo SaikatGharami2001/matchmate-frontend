@@ -25,19 +25,19 @@ Future updates will include messaging, notifications, and real-time features.
 
 # 📚 **Table of Contents**
 
-- [Authentication](#-authentication)
-- [Connection System](#-connection-system)
-- [User Profile](#-user-profile)
-- [Performance](#-performance)
-- [Screenshots](#-screenshots)
-- [Live Demo](#-live-demo)
-- [Getting Started](#️-getting-started)
-- [Project Structure](#-project-structure)
-- [Architecture](#-how-it-works--architecture)
-- [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
-- [Author](#-author)
-- [License](#-license)
+- [🔐 Authentication](#-authentication)
+- [👥 Connection System](#-connection-system)
+- [👤 User Profile](#-user-profile)
+- [⚡ Performance](#-performance)
+- [📸 Screenshots](#-screenshots)
+- [🌍 Live Demo](#-live-demo)
+- [⚙️ Getting Started](#️-getting-started)
+- [🧱 Project Structure](#-project-structure)
+- [❌ Architecture](#-how-it-works--architecture)
+- [🛠 Roadmap](#-roadmap)
+- [🤝 Contributing](#-contributing)
+- [👨‍💻 Author](#-author)
+- [📄 License](#-license)
 
 ---
 
@@ -108,3 +108,66 @@ Follow these steps to run the project locally.
 git clone https://github.com/SaikatGharami2001/matchmate-frontend.git
 cd matchmate-frontend
 ```
+
+## **2️⃣ Install dependencies**
+
+```bash
+npm install
+```
+
+## **3️⃣ Configure environment variables**
+
+- Responsive UI
+
+```bash
+VITE_BASE_URL=https://your-backend-url.com
+```
+
+## **4️⃣ Start development server**
+
+```bash
+npm run dev
+```
+
+## **5️⃣ Build for production**
+
+- Responsive UI
+
+```bash
+npm run build
+```
+
+## **🧱 Project Structure**
+
+## **❌ How It Works – Architecture**
+
+```bash
+
+Frontend (React + Zustand + Axios)
+    |
+    |  HTTP (JWT, Cookies)
+    v
+Backend (Node.js + Express + MongoDB)
+    |
+    |  Mongoose Models
+    v
+Database (MongoDB Atlas)
+
+```
+
+- Frontend handles UI + state
+- Backend handles auth, cookies, hashing
+- Both communicate via REST APIs
+
+## **🛠 Roadmap**
+
+- Real-time chat (Socket.io)
+- Push notifications
+- Profile photo upload
+- Framer Motion animations
+- Infinite scroll
+
+## **👨‍💻 Author**
+
+- Saikat Gharami
+  GitHub: https://github.com/SaikatGharami2001
