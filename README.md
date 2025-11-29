@@ -1,14 +1,29 @@
-# **MatchMate – Frontend (React + Vite) 🚀**
+<div align="center">
 
-A modern, fast, and secure frontend for **MatchMate**, a social networking platform built for managing real human connections.  
-This UI focuses on clean design, efficient state management, and production-ready architecture.  
-Future versions will include messaging and real-time features.
+# 🚀 **MatchMate – Frontend (React + Vite)**
+
+Modern UI for building real social connections.
+
+A fast, clean, and optimized frontend for the MatchMate platform — built with React, Tailwind, Zustand & Vite.  
+Future updates will include messaging, notifications, and real-time features.
+
+<br/>
+
+### 🏅 Tech Stack
+
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![Zustand](https://img.shields.io/badge/Zustand-000000?logo=react&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=white)
+![Tailwind](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwindcss&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)
+
+<br/>
+</div>
 
 ---
 
-## 🔥 **Core Features**
-
-### 🔐 **Authentication**
+## 🔐 **Authentication**
 
 - Signup / Login / Logout
 - JWT-based authentication
@@ -18,72 +33,33 @@ Future versions will include messaging and real-time features.
 
 ---
 
-### 👥 **Connection System**
+## 👥 **Connection System**
 
 - Browse all users
 - Send connection requests
-- Accept / Ignore incoming requests
+- Accept / Ignore requests
 - Manage **pending & received** requests
-- Smooth UI state updates using Zustand
+- Smooth realtime-like UI via Zustand
 
 ---
 
-### 👤 **User Profile**
+## 👤 **User Profile**
 
 - Edit profile information
-- View user details
+- View basic user details
 - Fully responsive layout
-- Reusable component structure
+- Reusable components
 
 ---
 
-### ⚡ **Performance**
+## ⚡ **Performance**
 
-- Optimized global state management
+- Optimized global state
 - Lean API calls with Axios
 - Fast routing via React Router
-- Smooth UI transitions & minimal re-renders
-- Tailwind CSS for fast and consistent styling
+- Minimal re-renders
+- Tailwind CSS utility-first styling
 
 ---
 
-## 🛠️ **Tech Stack**
-
-| Category             | Technologies |
-| -------------------- | ------------ |
-| **Framework**        | React (Vite) |
-| **Routing**          | React Router |
-| **State Management** | Zustand      |
-| **HTTP Client**      | Axios        |
-| **Styling**          | Tailwind CSS |
-| **Build Tool**       | Vite         |
-| **Deployment**       | Vercel       |
-
----
-
-## 📁 **Project Structure**
-
-```txt
-matchmate-frontend/
-├── src/
-│   ├── assets/               # Images, icons, design assets
-│   ├── components/           # Reusable UI components
-│   ├── hooks/                # Custom hooks
-│   ├── store/                # Zustand global stores
-│   │   ├── useAuthStore.js
-│   │   ├── useConnectionStore.js
-│   │   ├── useFeedStore.js
-│   │   └── usePending.js
-│   ├── utils/
-│   │   └── constants.js      # API base URLs, helper constants
-│   ├── app.css
-│   ├── App.jsx               # Application routes
-│   └── main.jsx              # Vite entry file
-│
-├── index.html
-├── .env                      # Environment variables
-├── vite.config.js
-├── vercel.json               # Deployment config
-├── eslint.config.js
-└── package.json
-```
+## 🧱 **Project Structure**
