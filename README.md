@@ -111,25 +111,10 @@ vercel.json
 package.json
 package-lock.json
 
-matchmate-frontend/
-├── src/
-│ ├── assets/ # Images, icons, screenshots, gif preview
-│ ├── components/ # Reusable UI components
-│ ├── hooks/ # Custom hooks
-│ ├── store/ # Zustand stores
-│ │ ├── useAuthStore.js
-│ │ ├── useConnectionStore.js
-│ │ ├── useFeedStore.js
-│ │ └── usePending.js
-│ ├── utils/
-│ │ └── constants.js # BASE URLs & constants
-│ ├── app.css
-│ ├── App.jsx # Application routes
-│ └── main.jsx # Vite entry file
-│
-├── index.html
-├── .env # Environment variables
-├── vite.config.js
-├── vercel.json # Deployment config
-├── eslint.config.js
-└── package.json
+🔗 Live Demo
+
+👉 https://matchmate-frontend.vercel.app
+
+🔌 Backend API Repository
+
+👉 https://github.com/yourusername/matchmate-backend
