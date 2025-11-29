@@ -150,7 +150,7 @@ npm install
 - Responsive UI
 
 ```bash
-VITE_BASE_URL=https://your-backend-url.com
+VITE_API_URL=https://matchmate-backend-nzyc.onrender.com
 ```
 
 ## **4️⃣ Start development server**
@@ -232,7 +232,7 @@ matchmate-frontend/
 
 ```
 
-## **❌ How It Works – Architecture**
+## **✅ How It Works – Architecture**
 
 ```bash
 
@@ -271,7 +271,7 @@ MatchMate was built to practice and demonstrate real-world MERN skills:
 - Deploying on Vercel
 - Handling API state and errors gracefully
 
-## **🛠 Roadmap**
+## **🧭 Future Roadmap**
 
 - Real-time chat (Socket.io)
 - Push notifications
