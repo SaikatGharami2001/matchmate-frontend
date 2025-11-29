@@ -25,23 +25,23 @@ Future updates will include messaging, notifications, and real-time features.
 
 # 📚 **Table of Contents**
 
-- [🔐 Authentication](#-authentication)
-- [👥 Connection System](#-connection-system)
-- [👤 User Profile](#-user-profile)
-- [⚡ Performance](#-performance)
-- [📸 Screenshots](#-screenshots)
-- [🌍 Live Demo](#-live-demo)
-- [⚙️ Getting Started](#️-getting-started)
-- [🧱 Project Structure](#-project-structure)
-- [❌ Architecture](#-how-it-works--architecture)
-- [🛠 Roadmap](#-roadmap)
-- [🤝 Contributing](#-contributing)
-- [👨‍💻 Author](#-author)
-- [📄 License](#-license)
+- [Authentication](#-authentication)
+- [Connection System](#-connection-system)
+- [User Profile](#-user-profile)
+- [Performance](#-performance)
+- [Screenshots](#-screenshots)
+- [Live Demo](#-live-demo)
+- [Getting Started](#️-getting-started)
+- [Project Structure](#-project-structure)
+- [Architecture](#-how-it-works--architecture)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [Author](#-author)
+- [License](#-license)
 
 ---
 
-## 🔐 **Authentication**
+# 🔐 **Authentication**
 
 - Signup / Login / Logout
 - JWT-based authentication
@@ -51,7 +51,7 @@ Future updates will include messaging, notifications, and real-time features.
 
 ---
 
-## 👥 **Connection System**
+# 👥 **Connection System**
 
 - Browse all users
 - Send connection requests
@@ -61,22 +61,22 @@ Future updates will include messaging, notifications, and real-time features.
 
 ---
 
-## 👤 **User Profile**
+# 👤 **User Profile**
 
-- Edit profile information
-- View basic user details
-- Fully responsive layout
+- Edit profile
+- View user details
+- Responsive UI
 - Reusable components
 
 ---
 
-## ⚡ **Performance**
+# ⚡ **Performance**
 
 - Optimized global state
-- Lean API calls with Axios
-- Fast routing via React Router
+- Axios API calls
+- Fast routing
 - Minimal re-renders
-- Tailwind CSS utility-first styling
+- Tailwind CSS styling
 
 ---
 
@@ -100,7 +100,9 @@ Future updates will include messaging, notifications, and real-time features.
 
 Follow these steps to run the project locally.
 
-### 1️⃣ Clone the repository
+---
+
+## **1️⃣ Clone the repository**
 
 ```bash
 git clone https://github.com/SaikatGharami2001/matchmate-frontend.git
