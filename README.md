@@ -101,10 +101,10 @@ matchmate-frontend/
 │ │
 │ ├── app.css
 │ ├── App.jsx # App + Routes
-│ └── main.jsx # Vite entry point
+│ └── main.jsx # Vite entry file
 │
-├── .env # Environment variables
 ├── index.html
+├── .env # Environment variables
 ├── eslint.config.js
 ├── vite.config.js
 ├── vercel.json
