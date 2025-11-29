@@ -17,9 +17,31 @@ Future updates will include messaging, notifications, and real-time features.
 ![Axios](https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwindcss&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+<br/>
+
+### 🎥 Preview
+
+> Add a GIF here for maximum impact  
+> (Example: `src/assets/preview.gif`)
+
+<img src="src/assets/preview.gif" width="700" />
 
 <br/>
 </div>
+</div>
+
+# ✨ **Features Overview**
+
+- 🔐 Secure Authentication (JWT + HTTP-only cookies)
+- 🤝 Connection requests (send, accept, ignore)
+- 👤 Profile editing & user info
+- ⚡ Zustand-based global state
+- 📱 Fully responsive UI
+- 🚀 Fast dev experience with Vite
+- 💬 Real-time chat (coming soon)
+- 🌙 Dark mode (planned)
 
 ---
 
@@ -32,10 +54,12 @@ Future updates will include messaging, notifications, and real-time features.
 - [📸 Screenshots](#-screenshots)
 - [🌍 Live Demo](#-live-demo)
 - [⚙️ Getting Started](#️-getting-started)
+- [👨‍💻 Technologies Used](#-technologies-used)
 - [🧱 Project Structure](#-project-structure)
 - [❌ Architecture](#-how-it-works--architecture)
+- [👨‍💻 Why I Built This](#-why-i-built-this)
+- [👨‍💻 What I Learned](#-what-i-learned)
 - [🛠 Roadmap](#-roadmap)
-- [🤝 Contributing](#-contributing)
 - [👨‍💻 Author](#-author)
 - [📄 License](#-license)
 
@@ -65,7 +89,7 @@ Future updates will include messaging, notifications, and real-time features.
 
 - Edit profile
 - View user details
-- Responsive UI
+- Responsive design
 - Reusable components
 
 ---
@@ -73,10 +97,10 @@ Future updates will include messaging, notifications, and real-time features.
 # ⚡ **Performance**
 
 - Optimized global state
-- Axios API calls
-- Fast routing
+- Lean Axios requests
+- Fast routing via React Router
 - Minimal re-renders
-- Tailwind CSS styling
+- Tailwind for consistent UI
 
 ---
 
@@ -136,6 +160,17 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## **🧰 Technologies Used**
+
+| Category         | Tech         |
+| ---------------- | ------------ |
+| Framework        | React, Vite  |
+| State Management | Zustand      |
+| Routing          | React Router |
+| Networking       | Axios        |
+| Styling          | Tailwind CSS |
+| Deployment       | Vercel       |
 
 ## **🧱 Project Structure**
 
@@ -210,6 +245,25 @@ Database (MongoDB Atlas)
 - Frontend handles UI + state
 - Backend handles auth, cookies, hashing
 - Both communicate via REST APIs
+
+## **🎯 Why I Built This**
+
+MatchMate was built to practice and demonstrate real-world MERN skills:
+
+- Authentication with secure cookies
+- Zustand global state architecture
+- Component-based UI patterns
+- Proper folder structuring
+- Working with REST APIs
+- Deploying full-stack apps
+
+## **🧠 What I Learned**
+
+- Implementing JWT + HTTP-only cookie auth
+- Building scalable Zustand stores
+- Writing clean reusable components
+- Deploying on Vercel
+- Handling API state and errors gracefully
 
 ## **🛠 Roadmap**
 
