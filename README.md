@@ -133,8 +133,6 @@ Backend (Node.js + Express + MongoDB)
 Database (MongoDB Atlas)
 ```
 
-```txt
-Frontend handles all UI + state.
-Backend handles auth, connections, secure cookies, hashing.
-Both communicate via REST APIs.
-```
+- Frontend handles all UI + state.
+- Backend handles auth, connections, secure cookies, hashing.
+- Both communicate via REST APIs.
