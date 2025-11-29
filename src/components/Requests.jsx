@@ -67,7 +67,10 @@ const Requests = () => {
   return (
     <div className="flex flex-wrap gap-6 justify-center">
       {requests.map((req) => {
-        const { requestId, user } = req;
+        const { _id: requestId, user } = req;
+
+        if (!user) return null; // prevent breaking render
+
         const { firstName, lastName, age } = user;
 
         return (
