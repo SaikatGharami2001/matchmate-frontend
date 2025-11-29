@@ -118,3 +118,17 @@ package-lock.json
 🔌 Backend API Repository
 
 👉 https://github.com/yourusername/matchmate-backend
+
+## ❌ How It Works – Architecture
+
+```txt
+Frontend (React + Zustand + Axios)
+    |
+    |  HTTP (JWT, Cookies)
+    v
+Backend (Node.js + Express + MongoDB)
+    |
+    |  Mongoose Models
+    v
+Database (MongoDB Atlas)
+```
