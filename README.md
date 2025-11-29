@@ -139,6 +139,8 @@ Database (MongoDB Atlas)
 
 ## 🧱 **📸 Screenshots**
 
-![Home](src/assets/screenshots/home.png)
-![Profile](src/assets/screenshots/profile.png)
-![Requests](src/assets/screenshots/requests.png)
+![Home](src/assets/home.png)
+![SignUp](src/assets/signup.png)
+![Login](src/assets/login.png)
+![Dashboard](src/assets/dashboard.png)
+![Feed](src/assets/feed.png)
