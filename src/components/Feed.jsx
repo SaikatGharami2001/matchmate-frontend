@@ -12,8 +12,6 @@ const Feed = () => {
 
   if (!feed || feed.length === 0) return <div>No users found</div>;
 
-  console.log(feed[0]);
-
   return (
     <div className="min-h-screen flex justify-center items-center px-4">
       <UserCard
