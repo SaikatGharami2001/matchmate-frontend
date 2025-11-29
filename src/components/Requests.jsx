@@ -67,19 +67,19 @@ const Requests = () => {
   return (
     <div className="flex flex-wrap gap-6 justify-center">
       {requests.map((req) => {
-        const { _id: requestId, user } = req;
-
-        if (!user) return null; // prevent breaking render
-
-        const { firstName, lastName, age } = user;
+        const { requestId, fromUserId } = req;
+        console.log(fromUserId);
+        const { firstName, lastName, age, _id, gender, job } = fromUserId;
 
         return (
           <UserCard
-            key={requestId}
+            key={_id}
             requestId={requestId}
             firstName={firstName}
             lastName={lastName}
             age={age}
+            gender={gender}
+            job={job}
             mode="pending"
             acceptRequest={accept}
             rejectRequest={reject}
