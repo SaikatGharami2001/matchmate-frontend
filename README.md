@@ -65,48 +65,48 @@ Future updates will include messaging, notifications, and real-time features.
 ## 🧱 **Project Structure**
 
 matchmate-frontend/
-├── src/
-│ ├── assets/ # Images, icons, previews
-│ │
-│ ├── components/ # Reusable UI components
-│ │ ├── About.jsx
-│ │ ├── BackgroundParticles.jsx
-│ │ ├── Body.jsx
-│ │ ├── ChangePassword.jsx
-│ │ ├── Connections.jsx
-│ │ ├── Dashboard.jsx
-│ │ ├── DropdownPortal.jsx
-│ │ ├── EditProfile.jsx
-│ │ ├── Feed.jsx
-│ │ ├── Footer.jsx
-│ │ ├── Home.jsx
-│ │ ├── Login.jsx
-│ │ ├── Messages.jsx
-│ │ ├── Navbar.jsx
-│ │ ├── Profile.jsx
-│ │ ├── Requests.jsx
-│ │ ├── SignUp.jsx
-│ │ └── UserCard.jsx
-│ │
-│ ├── hooks/ # Custom React hooks
-│ │
-│ ├── store/ # Zustand state stores
-│ │ ├── useAuthStore.js
-│ │ ├── useConnectionStore.js
-│ │ ├── useFeedStore.js
-│ │ └── usePending.js
-│ │
-│ ├── utils/
-│ │ └── constants.js # Base URLs & project constants
-│ │
-│ ├── app.css
-│ ├── App.jsx # App + Routes
-│ └── main.jsx # Vite entry file
-│
-├── index.html
-├── .env # Environment variables
-├── eslint.config.js
-├── vite.config.js
-├── vercel.json
-├── package.json
-└── package-lock.json
+src/
+assets/ (images, icons, previews)
+
+    components/                  (reusable UI components)
+      About.jsx
+      BackgroundParticles.jsx
+      Body.jsx
+      ChangePassword.jsx
+      Connections.jsx
+      Dashboard.jsx
+      DropdownPortal.jsx
+      EditProfile.jsx
+      Feed.jsx
+      Footer.jsx
+      Home.jsx
+      Login.jsx
+      Messages.jsx
+      Navbar.jsx
+      Profile.jsx
+      Requests.jsx
+      SignUp.jsx
+      UserCard.jsx
+
+    hooks/                       (custom React hooks)
+
+    store/                       (Zustand stores)
+      useAuthStore.js
+      useConnectionStore.js
+      useFeedStore.js
+      usePending.js
+
+    utils/
+      constants.js               (base URLs & constants)
+
+    app.css
+    App.jsx                      (app + routes)
+    main.jsx                     (Vite entry point)
+
+.env (environment variables)
+index.html
+eslint.config.js
+vite.config.js
+vercel.json
+package.json
+package-lock.json
