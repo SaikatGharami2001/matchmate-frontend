@@ -113,16 +113,16 @@ package-lock.json
 
 matchmate-frontend/
 ├── src/
-│ ├── assets/ # Images, icons, design assets
+│ ├── assets/ # Images, icons, screenshots, gif preview
 │ ├── components/ # Reusable UI components
 │ ├── hooks/ # Custom hooks
-│ ├── store/ # Zustand global stores
+│ ├── store/ # Zustand stores
 │ │ ├── useAuthStore.js
 │ │ ├── useConnectionStore.js
 │ │ ├── useFeedStore.js
 │ │ └── usePending.js
 │ ├── utils/
-│ │ └── constants.js # API base URLs, helper constants
+│ │ └── constants.js # BASE URLs & constants
 │ ├── app.css
 │ ├── App.jsx # Application routes
 │ └── main.jsx # Vite entry file
