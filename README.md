@@ -271,7 +271,7 @@ MatchMate was built to practice and demonstrate real-world MERN skills:
 - Deploying on Vercel
 - Handling API state and errors gracefully
 
-## **🧭 Future Roadmap**
+## **🧭 Roadmap**
 
 - Real-time chat (Socket.io)
 - Push notifications
