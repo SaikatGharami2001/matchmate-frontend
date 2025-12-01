@@ -23,8 +23,9 @@ Future updates will include messaging, notifications, and real-time features.
 
 ### 🎥 Preview
 
-> Add a GIF here for maximum impact  
-> (Example: `src/assets/preview.gif`)
+- Here’s a quick preview of MatchMate in action:
+
+  ![FoodMate Preview](./src/assets/MatchMate.gif.gif)
 
 <img src="src/assets/preview.gif" width="700" />
 
