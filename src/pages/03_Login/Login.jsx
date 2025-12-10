@@ -52,8 +52,6 @@ const Login = () => {
     }
   };
 
-  // ========= Tailwind CSS Starts =========
-
   const styles = {
     outerDiv:
       "min-h-screen w-full overflow-hidden flex justify-center items-center px-4 text-white animate-fade-in",
@@ -79,8 +77,6 @@ const Login = () => {
     passwordDiv: "flex flex-col gap-2 mb-6",
     messageDiv: "h-8 mt-3 flex justify-center items-center",
   };
-
-  // ========= Tailwind CSS Ends =========
 
   return (
     <div className={styles.outerDiv}>

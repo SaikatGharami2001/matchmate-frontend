@@ -24,38 +24,30 @@ const SignUp = () => {
     setSuccessMessage("");
     setErrorMessage("");
 
-    if (
-      !firstName ||
-      !lastName ||
-      !email ||
-      !password ||
-      !age ||
-      !gender ||
-      !job
-    ) {
+    // For user friendly error messages
+    const labels = {
+      firstName: "First Name",
+      lastName: "Last Name",
+      email: "Email",
+      password: "Password",
+      age: "Age",
+      gender: "Gender",
+      job: "Job",
+    };
+
+    const fields = { firstName, lastName, email, password, age, gender, job };
+    const missing = Object.entries(fields).find(([key, value]) => !value);
+
+    if (missing) {
+      const [key, value] = missing;
       setLoading(false);
-      setErrorMessage("Please fill all fields");
-
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 3000);
-
+      setErrorMessage(`${labels[key]} is required`);
+      setTimeout(() => setErrorMessage(""), 3000);
       return;
     }
 
     try {
-      const res = await axios.post(`${BASE_URL}/signup`, {
-        firstName,
-        lastName,
-        email,
-        password,
-        age,
-        gender,
-        job,
-      });
-
-      console.log(res);
-
+      const res = await axios.post(`${BASE_URL}/signup`, fields);
       setSuccessMessage("Account created successfully! 🎉 Redirecting...");
       setTimeout(() => navigate("/login"), 1200);
 
