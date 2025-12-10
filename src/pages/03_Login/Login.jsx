@@ -22,23 +22,26 @@ const Login = () => {
     setErrorMessage("");
     setSuccessMessage("");
 
-    if (!email || !password) {
+    // For user friendly error messages
+    const labels = {
+      email: "Email",
+      password: "Password",
+    };
+
+    const fields = { email, password };
+    const missing = Object.entries(fields).find(([key, value]) => !value);
+    if (missing) {
+      const [key, value] = missing;
+      setErrorMessage(`${labels[key]} is required`);
       setLoading(false);
-      setErrorMessage("Please fill all fields");
-
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 3000);
-
+      setTimeout(() => setErrorMessage(""), 3000);
       return;
     }
 
     try {
-      const res = await axios.post(
-        `${BASE_URL}/login`,
-        { email, password },
-        { withCredentials: true }
-      );
+      const res = await axios.post(`${BASE_URL}/login`, fields, {
+        withCredentials: true,
+      });
       loggedInUserData(res.data);
 
       setSuccessMessage("Login Successful 🎉 Redirecting...");

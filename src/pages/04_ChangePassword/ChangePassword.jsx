@@ -23,21 +23,26 @@ const ChangePassword = () => {
     setErrorMessage("");
     setSuccessMessage("");
 
-    if (!email || !oldPassword || !newPassword) {
-      setLoading(false);
-      setErrorMessage("Please fill all fields");
+    // For user friendly error messages
+    const labels = {
+      email: "Email",
+      oldPassword: "Old Password",
+      newPassword: "New Password",
+    };
 
+    const fields = { email, oldPassword, newPassword };
+    const missing = Object.entries(fields).find(([key, value]) => !value);
+
+    if (missing) {
+      const [key, value] = missing;
+      setLoading(false);
+      setErrorMessage(`${labels[key]} is required`);
       setTimeout(() => setErrorMessage(""), 3000);
       return;
     }
 
     try {
-      const res = await axios.post(`${BASE_URL}/change-password`, {
-        email,
-        oldPassword,
-        newPassword,
-      });
-
+      const res = await axios.post(`${BASE_URL}/change-password`, fields);
       setSuccessMessage("Password updated successfully! 🎉 Redirecting...");
       setTimeout(() => navigate("/login"), 1500);
 
@@ -50,8 +55,6 @@ const ChangePassword = () => {
       setLoading(false);
     }
   };
-
-  // ========= Tailwind CSS Starts =========
 
   const styles = {
     outerDiv:
@@ -89,8 +92,6 @@ const ChangePassword = () => {
     backToLogin:
       "text-pink-500 cursor-pointer hover:text-red-500 underline text-sm transition-all",
   };
-
-  // ========= Tailwind CSS Ends =========
 
   return (
     <div className={styles.outerDiv}>
