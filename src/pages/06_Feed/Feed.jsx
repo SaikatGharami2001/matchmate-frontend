@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useFeedStore } from "../store/useFeedStore";
-import UserCard from "./UserCard";
+import { useFeedStore } from "../../store/useFeedStore";
+import UserCard from "../../components/UserCard";
 
 const Feed = () => {
   const feed = useFeedStore((s) => s.feed);

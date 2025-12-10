@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../utils/constants";
-import { usePending } from "../store/usePending";
-import UserCard from "./UserCard";
+import { BASE_URL } from "../../utils/constants";
+import { usePending } from "../../store/usePending";
+import UserCard from "../../components/UserCard";
 
 const Requests = () => {
   const [loading, setLoading] = useState(true);

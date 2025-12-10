@@ -1,5 +1,5 @@
 import { useAuthStore } from "../store/useAuthStore";
-import EditProfile from "./EditProfile";
+import EditProfile from "../pages/EditProfile";
 
 const Profile = () => {
   const user = useAuthStore((state) => state.user);

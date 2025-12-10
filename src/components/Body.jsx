@@ -15,34 +15,42 @@ const Body = () => {
   ];
   const hideLayout = fullScreenPages.includes(location.pathname);
 
+  const styles = {
+    outer:
+      "relative flex flex-col min-h-screen overflow-hidden bg-[#0d0d11] bg-[radial-gradient(circle_at_center,rgba(255,0,102,0.12),transparent_65%)] text-white transition-all duration-300 ease-in-out",
+
+    divider:
+      "h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent",
+
+    outlet:
+      "flex flex-grow justify-center items-center px-4 py-8 animate-fade-in",
+  };
+
   return (
-    <div className="relative flex flex-col min-h-screen overflow-hidden bg-[#0d0d11] bg-[radial-gradient(circle_at_center,rgba(255,0,102,0.12),transparent_65%)] text-white transition-all duration-300 ease-in-out">
+    <div className={styles.outer}>
       <BackgroundParticles />
 
-      {/* Navbar condition */}
+      {/* Navbar */}
       {!hideLayout && (
         <div className="animate-fade-in">
           <Navbar />
         </div>
       )}
 
-      {/* Top divider only if navbar visible */}
-      {!hideLayout && (
-        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
-      )}
+      {/* Top divider */}
+      {!hideLayout && <div className={styles.divider} />}
 
-      <main className="flex flex-grow justify-center items-center px-4 py-8 animate-fade-in">
+      <main className={styles.outlet}>
         <Outlet />
       </main>
 
-      {/* Bottom divider only if footer visible */}
-      {!hideLayout && (
-        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
-      )}
+      {/* Bottom divider */}
+      {!hideLayout && <div className={styles.divider} />}
 
+      {/* Dashboard footer */}
       {location.pathname === "/dashboard" && (
         <>
-          <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
+          <div className={styles.divider} />
           <div className="animate-fade-in">
             <Footer />
           </div>

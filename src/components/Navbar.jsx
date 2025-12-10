@@ -52,82 +52,72 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  const styles = {
+    nav: "sticky top-0 z-[999999] isolate w-full border-b border-pink-600/20 bg-black/40 backdrop-blur-2xl shadow-[0_4px_30px_rgba(255,0,10,0.25)]",
+
+    inner: "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between",
+
+    brand:
+      "text-3xl font-extrabold tracking-wide text-white hover:text-pink-500 transition duration-300",
+
+    navLink:
+      "relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide",
+
+    avatarWrapper:
+      "w-11 h-11 rounded-full overflow-hidden border border-pink-600/50 hover:border-pink-500 transition cursor-pointer shadow-[0_0_12px_rgba(255,0,120,0.4)]",
+
+    avatarInner:
+      "w-11 h-11 rounded-full flex items-center justify-center text-xl font-extrabold bg-gradient-to-br from-pink-600 via-red-600 to-purple-700 text-white shadow-[0_0_18px_rgba(255,0,120,0.6)] border border-pink-400/ backdrop-blur-md animate-[pulse_2s_ease-in-out_infinite] relative overflow-hid",
+
+    shine:
+      "absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent translate-y-[-100%] animate-[slideDown_3s_infinite]",
+
+    dropdown: "space-y-2",
+
+    dropdownFade: (fadeAnim) =>
+      `z-[999999] w-56 p-4 rounded-2xl bg-[#0d0d0d] border border-pink-600/30 text-gray-200 shadow-[0_0_35px_rgba(255,0,140,0.35)] cursor-pointer transform transition-all duration-500 ease-in-out ${
+        fadeAnim ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"
+      }`,
+
+    logout:
+      "block w-full text-left px-3 py-2 rounded-lg hover:bg-red-600/50 text-red-400 transition cursor-pointer",
+  };
+
   return (
-    <nav className="sticky top-0 z-[999999] isolate w-full border-b border-pink-600/20 bg-black/40 backdrop-blur-2xl shadow-[0_4px_30px_rgba(255,0,130,0.25)]">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link
-          to="/dashboard"
-          className="text-3xl font-extrabold tracking-wide text-white hover:text-pink-500 transition duration-300"
-        >
+    <nav className={styles.nav}>
+      <div className={styles.inner}>
+        <Link to="/dashboard" className={styles.brand}>
           MatchMate<span className="text-pink-600">❤️</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
-          <Link
-            to="/feed"
-            className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
-          >
+          <Link to="/feed" className={styles.navLink}>
             Feed
           </Link>
-
-          <Link
-            to="/connections"
-            className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
-          >
+          <Link to="/connections" className={styles.navLink}>
             Connections
           </Link>
-
-          <Link
-            to="/requests/pending"
-            className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
-          >
+          <Link to="/requests/pending" className={styles.navLink}>
             Requests
           </Link>
-
-          <Link
-            to="/about"
-            className="relative text-lg font-semibold text-gray-300 hover:text-white transition tracking-wide"
-          >
+          <Link to="/about" className={styles.navLink}>
             About
           </Link>
         </div>
 
+        {/* AVATAR */}
         <div className="flex items-center gap-5 relative z-[9999]">
           <div ref={dropdownRef} className="relative">
             <button
               onClick={handleAvatarClick}
-              className="w-11 h-11 rounded-full overflow-hidden border border-pink-600/50 hover:border-pink-500 transition cursor-pointer shadow-[0_0_12px_rgba(255,0,120,0.4)]"
+              className={styles.avatarWrapper}
             >
-              {/* Profile Logo Start */}
-
-              <div
-                className="
-    w-11 h-11 rounded-full
-    flex items-center justify-center
-    text-xl font-extrabold
-    bg-gradient-to-br from-pink-600 via-red-600 to-purple-700
-    text-white
-    shadow-[0_0_18px_rgba(255,0,120,0.6)]
-    border border-pink-400/40
-    backdrop-blur-md
-    animate-[pulse_2s_ease-in-out_infinite]
-    relative overflow-hidden
-  "
-              >
+              <div className={styles.avatarInner}>
                 <span className="z-10 drop-shadow-sm">
                   {user && user.firstName[0]}
                 </span>
-                {/* shine overlay */}
-                <div
-                  className="
-      absolute top-0 left-0 w-full h-full
-      bg-gradient-to-br from-white/20 to-transparent
-      translate-y-[-100%]
-      animate-[slideDown_3s_infinite]"
-                ></div>
+                <div className={styles.shine}></div>
               </div>
-
-              {/* Profile Logo End */}
             </button>
 
             {open && (
@@ -138,15 +128,9 @@ const Navbar = () => {
                     top: coords.top,
                     left: coords.left,
                   }}
-                  className={`z-[999999] w-56 p-4 rounded-2xl bg-[#0d0d0d] border border-pink-600/30 text-gray-200 shadow-[0_0_35px_rgba(255,0,140,0.35)] cursor-pointer
-                  transform transition-all duration-500 ease-in-out
-                  ${
-                    fadeAnim
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 -translate-y-3"
-                  }`}
+                  className={styles.dropdownFade(fadeAnim)}
                 >
-                  <ul className="space-y-2">
+                  <ul className={styles.dropdown}>
                     <li>
                       <Link
                         to="/profile/edit"
@@ -159,10 +143,7 @@ const Navbar = () => {
                     <div className="h-[1px] bg-white/10"></div>
 
                     <li>
-                      <button
-                        onClick={handleLogout}
-                        className="block w-full text-left px-3 py-2 rounded-lg hover:bg-red-600/50 text-red-400 transition cursor-pointer"
-                      >
+                      <button onClick={handleLogout} className={styles.logout}>
                         Logout
                       </button>
                     </li>

@@ -6,18 +6,18 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import Home from "./components/Home";
+import Home from "./pages/01_Home/Home";
+import SignUp from "./pages/02_Signup/SignUp";
+import Login from "./pages/03_Login/Login";
+import ChangePassword from "./pages/04_ChangePassword/ChangePassword";
+import Dashboard from "./pages/05_Dashboard/Dashboard";
+import Feed from "./pages/06_Feed/Feed";
+import Connections from "./pages/07_Connection/Connections";
+import Messages from "./pages/08_Messages/Messages";
+import Requests from "./pages/09_Requests/Requests";
+import Profile from "./pages/10_Profile/EditProfile";
 import Body from "./components/Body";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
-import ChangePassword from "./components/ChangePassword";
-import Dashboard from "./components/Dashboard";
-import Feed from "./components/Feed";
-import Messages from "./components/Messages";
-import Profile from "./components/Profile";
-import Connections from "./components/Connections";
-import Requests from "./components/Requests";
-import About from "./components/About";
+import About from "./pages/11_About/About";
 
 import { useAuthStore } from "./store/useAuthStore";
 
